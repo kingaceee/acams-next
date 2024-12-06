@@ -1,0 +1,17 @@
+.sub {
+	&__visual {
+		height: 500px;
+		background-image: url('/images/main/img_KV_01.jpg');
+		background-position: center top;
+		background-size: 100%;
+		cursor: default
+	}
+
+	&__title {
+		@include flexCenter(center);
+		height: 100%;
+		padding-top: 80px;
+		color: #fff;
+		@include font(60,800);
+	}
+}

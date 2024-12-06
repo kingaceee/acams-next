@@ -1,0 +1,38 @@
+.main__title {
+	z-index: $above;
+	@include flexCenter(center);
+	@include pos-centerXB(-18);
+	width: 100%;
+	font-family: $effectFont;
+	color: #E2FDFF;
+	@include font(160,800);
+	line-height: 1;
+
+	span {
+		display: inline-block;
+		transform-origin: bottom;
+		-webkit-animation: scaleY-up .5s .5s cubic-bezier(.250, .460, .450, .940) both;
+						animation: scaleY-up .5s .5s cubic-bezier(.250, .460, .450, .940) both;
+
+		@for $i from 1 through 12 {
+			&:nth-child(#{$i}) {
+				animation-delay: .3s * ($i - 1);
+			}
+		}
+
+		&.space {
+			margin-left: 80px;
+		}
+	}
+}
+
+@keyframes scaleY-up {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}

@@ -1,0 +1,15 @@
+.about {
+	&__container {
+		line-height: 27px;
+		letter-spacing: -0.02em;
+
+		p + .about__sign {
+			margin-top: 40px;
+		}
+	}
+
+	&__sign {
+		margin-bottom: 32px;
+		text-align: center;
+	}
+}

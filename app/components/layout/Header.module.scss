@@ -1,0 +1,112 @@
+
+.header {
+	z-index: $level500;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 80px;
+	padding: 0 50px;
+	background-color: rgba($color: $primary, $alpha: .8);
+	transition: all 0.5s ease-out;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background: 
+    linear-gradient(to left, rgba(204, 204, 204, .8), rgba(204, 204, 204, .8)),
+    linear-gradient(to left, $primary, $primary);
+    // linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
+		background-size: 100% 0.1em, 0 0.1em;
+		background-position: 100% 100%, 0 100%;
+		background-repeat: no-repeat;
+		transition: background-size .6s;
+	}
+
+	&.scroll {
+		background-color: rgba($color: $primary, $alpha: 1);
+		transition: all 0.5s ease-out;
+
+		&:after {
+			background-size: 0 0.1em, 100% 0.1em;
+		}
+	}
+
+	&__inner {
+		height: 100%;
+		@include flexCenter(space-between);
+	}
+}
+
+.gnb {
+	height: 100%;
+
+	&__depth1 {
+		@include flexCenter(flex-start,60);
+		height: 100%;
+	
+		li {
+			@include flexCenter(center);
+			position: relative;
+			height: 100%;
+	
+			&.depth2:hover {
+				.gnb__depth2 {
+					transform: translateX(-50%) scaleY(1);
+					transition: transform .3s ease-in-out;
+				}
+			}
+		}
+	
+		a {
+			color: #fff;
+			font-weight: 700;
+			cursor: pointer;
+	
+			&:hover,
+			&:active {
+				color: #18EAC2;
+			}
+		}
+	}
+
+	&__depth2 {
+		position: absolute;
+		top: 80px;
+    left: 50%;
+		width: 200px;
+		border: 1px solid #ccc;
+		background-color: rgba($color: #ffffff, $alpha: .9);
+		transform-origin: top;
+    transform: translateX(-50%) scaleY(0);
+		transition: transform .3s ease-in-out;
+
+		li {
+			@include flexCenter(center);
+			height: 52px;
+			
+			a {
+				@include flexCenter(center);
+				width: 100%;
+				height: 100%;
+				color: #333;
+			}
+
+			&:not(:first-child):hover {
+				background-color: rgba($color: #18EAC2, $alpha: .9);
+
+				a {
+					color: #041D59;
+				}
+			}
+
+			& + li {
+				border-top: 1px solid #ccc;
+			}
+		}
+	}
+}

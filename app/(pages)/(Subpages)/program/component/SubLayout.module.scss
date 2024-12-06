@@ -1,0 +1,108 @@
+.sub {
+	&__content {
+		margin-top: 50px;
+	}
+
+	&__title {
+		@include flexCenter(center);
+		justify-content: space-between;
+		padding: 30px;
+		font-family: $effectFont;
+		@include font(28,700);
+		border-radius: 8px;
+
+		@at-root .level1 {
+			.sub__title {
+				background: #071E5826;
+			}
+			.title {
+				color: #202E5B;
+			}
+		}
+		@at-root .level2 {
+			.sub__title {
+				background: #827A2B26;
+			}
+			.title {
+				color: #524D1C;
+			}
+		}
+		@at-root .level3 {
+			.sub__title {
+				background: #4B515526;
+			}
+			.title {
+				color: #333333;
+			}
+		}
+	}
+
+	&__desc {
+		padding: 32px 30px;
+	}
+}
+
+.desc {
+	&__list {
+		display: flex;
+		gap: 70px;
+	}
+
+	&__item {
+		&.left {
+			.title {
+				@include flexCenter;
+				gap: 8px;
+				padding: 6px 0;
+				color: #002368;
+				@include font(24,800);
+				border-bottom: 1px solid #ccc;
+
+				&:before {
+					content: '';
+					display: block;
+					width: 20px;
+					height: 20px;
+					background: url('/images/common/ACAMS-logo-sm.svg') no-repeat 50% 50% / 100%;
+				}
+			}
+
+			.desc {
+				padding: 16px 30px;
+				letter-spacing: -0.02em;
+				line-height: 24px;
+			}
+		}
+		&.right {
+			width: 280px;
+			min-width: 280px;
+
+			.title {
+				color: #002368;
+				@include font(18,800);
+			}
+
+			.desc {
+				margin-top: 8px;
+				font-size: 14px;
+
+				.bullet {
+					padding-left: 10px;
+					line-height: 18px;
+					text-align: justify;
+
+					& + .bullet {
+						margin-top: 4px;
+					}
+				}
+			}
+		}
+		
+	}
+
+	&__box {
+		& + .desc__box {
+			margin-top: 32px;
+		}
+	}
+}

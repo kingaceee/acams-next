@@ -1,0 +1,36 @@
+
+
+.card {
+	&__box {
+		flex: 1 1;
+		min-height: 350px;
+		color: #aaa;
+		border: 1px solid #ccc;
+		transition: background .3s ease-in;
+
+		opacity: 0;
+		transform: translateY(60px);
+		
+		&:hover {
+			color: $primary;
+			background: #eee;
+			transition: background .3s ease-in;
+		}
+	}
+}
+
+.box {
+	&__img {
+		@include flexCenter(center);
+		height: 244px;
+	}
+
+	&__title {
+		padding: 24px 0 40px;
+		font-family: $effectFont;
+		@include font(18,800);
+		line-height: 21px;
+		text-align: center;
+		border-top: 1px solid #ccc;
+	}
+}

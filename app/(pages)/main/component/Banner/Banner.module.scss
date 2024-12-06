@@ -1,0 +1,32 @@
+
+.banner {
+	&__box {
+		@include flexCenter(center,24);
+		flex-direction: column;
+		flex: 1 1;
+		padding: 0 50px;
+		@include font(24,700);
+
+		& + .banner__box {
+			position: relative;
+
+			&:before {
+				content: '';
+				display: block;
+				@include pos-centerYL(0);
+				width: 1px;
+				height: 120px;
+				background: #ccc;
+			}
+		}
+
+		.ico {
+			display: block;
+			width: 100px;
+			height: 100px;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-size: 100%;
+		}
+	}
+}

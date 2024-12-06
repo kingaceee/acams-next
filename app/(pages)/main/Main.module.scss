@@ -1,0 +1,145 @@
+
+.main {
+	&__section {
+		&.visual {
+			position: relative;
+			height: 100vh;
+			color: #fff;
+			@include font(60,800);
+			text-align: center;
+			line-height: 54px;
+
+			.main {
+				&__inner {
+					z-index: $above;
+					@include flexCenter(center);
+					@include pos-center;
+					width: 100%;
+					padding: 0 0 128px;
+				}
+
+				&__swiper {
+					height: 100%;
+				}
+
+				&__KV {
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: 50% 50%;
+
+					&.visual {
+						&1 {
+							background-image: url('/images/main/img_KV_01.jpg');
+						}
+						&2 {
+							background-image: url('/images/main/img_KV_02.jpg');
+						}
+						&3 {
+							background-image: url('/images/main/img_KV_03.jpg');
+						}
+						&4 {
+							background-image: url('/images/main/img_KV_04.jpg');
+						}
+						&5 {
+							background-image: url('/images/main/img_KV_05.jpg');
+						}
+					}
+				}
+			}
+		}
+
+		&.section1 {
+			scroll-snap-align: center;
+
+			.main__inner {
+				@include flexCenter(center, 24);
+				flex-direction: column;
+				padding-bottom: 0;
+			}
+
+			.text {
+				color: $primary;
+				@include font(24,700);
+				line-height: 40px;
+				text-align: center;
+			}
+
+			.button {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: auto;
+				height: 60px;
+				padding: 0 24px;
+				color: #fff;
+				@include font(20,700);
+				background: #222;
+			}
+		}
+
+		&.section2 {
+			.card {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+				
+				&__row {
+					@include flexCenter(start,16);
+				}
+			}
+		}
+
+		&.section3 {
+			background: $primary2;
+
+			.main__inner {
+				padding: 60px 0;
+			}
+
+			.banner {
+				@include flexCenter(center);
+
+				.ico1 {
+					background-image: url('/images/main/ico_banner01.svg');
+				}
+				.ico2 {
+					background-image: url('/images/main/ico_banner02.svg');
+				}
+			}
+		}
+
+		&.section4 {
+			@include font(24,700);
+			text-align: center;
+			background: $primary2;
+
+			.text {
+				margin-top: 24px;
+				line-height: 36px;
+			}
+		}
+
+		&.faq {
+			display: flex;
+
+			.title {
+				width: 300px;
+				min-width: 300px;
+				font-family: $effectFont;
+				@include font(36,800);
+
+				.desc {
+					display: block;
+					margin-bottom: 16px;
+					color: #bbb;
+					@include font(20,800);
+				}
+			}
+		}
+	}
+
+	&__inner {
+		height: 100%;
+		padding: 80px 0;
+	}
+}

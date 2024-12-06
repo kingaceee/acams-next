@@ -1,0 +1,97 @@
+
+// reset
+*:where(:not(html,iframe,canvas,img,svg,video,*:not(button)):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+*,*::before,*::after {
+  box-sizing: border-box;
+}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+ol,ul,menu {
+  list-style:none;
+}
+img {
+  max-width: 100%;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+  width: 100%;
+}
+caption {
+  visibility: hidden;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  line-height: 0;
+}
+textarea {
+  white-space: revert;
+  resize: none;
+}
+strong,em {
+  font-weight: normal; font-style: normal;
+}
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+::placeholder {
+  color: unset;
+}
+a,button {
+  display: block;
+  cursor: pointer;
+}
+
+// *::-webkit-scrollbar {
+//   position: absolute;
+//   width: 8px;
+//   height: 10px;
+// }
+// *::-webkit-scrollbar-thumb {
+//   background: #d7d8dd;
+//   border-radius: 99px;
+// }
+// *::-webkit-scrollbar-track {
+//   border-radius: 2px;
+//   background: $bg;
+// }
+
+[hidden],.hidden {
+  display: none !important;
+}
+:disabled, .disabled {
+	cursor: default;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #fff inset;
+  -webkit-text-fill-color: #000;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.blind {
+  visibility:hidden;
+  overflow:hidden;
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:0;
+  font-size:0;
+  line-height:0;
+}

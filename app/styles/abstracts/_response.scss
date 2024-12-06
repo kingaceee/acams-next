@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+///
+/// **px to viewport Unit Calculator **
+///  PX ==>  vw, vh, vmin, vmax로 변환
+///
+/// @param {Value} 기본타입은 px만 받는다.
+/// 추가적으로 변환 하고자 하는 단위를  두번째 인자로 받는다.
+/// 예) 12px, 12px vw, 12px vh, 12px vmin, 12px vmax
+/// @group fonts
+///
+
+// viewport size
+$mobile-size: 320; 
+
+@function vw-mo($target) {
+  @if type-of($target) == number {
+    @return (($target * 100) / $mobile-size) * 1vw;
+  } @else if type-of($target) == list {
+    $vw: ();
+    @each $value in $target {
+      @if type-of($value) == number {
+        $vw: append($vw, (($value * 100) / $mobile-size) * 1vw);
+      } @else if type-of($value) == string {
+        $vw: append($vw, $value);
+      }
+    }
+    @return $vw;
+  } @else {
+    @return $target;
+  }
+}
+
+$tablet-size: 768; 
+
+@function vw-ta($target) {
+  @if type-of($target) == number {
+    @return (($target * 100) / $tablet-size) * 1vw;
+  } @else if type-of($target) == list {
+    $vw: ();
+    @each $value in $target {
+      @if type-of($value) == number {
+        $vw: append($vw, (($value * 100) / $tablet-size) * 1vw);
+      } @else if type-of($value) == string {
+        $vw: append($vw, $value);
+      }
+    }
+    @return $vw;
+  } @else {
+    @return $target;
+  }
+}
