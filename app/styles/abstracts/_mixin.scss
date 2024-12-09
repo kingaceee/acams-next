@@ -40,6 +40,12 @@
 	align-items: center;
   gap: $gap + px;
 }
+@mixin inlineFlexCenter($justify: 0, $gap: 0) {
+	display: inline-flex;
+	justify-content: $justify;
+	align-items: center;
+  gap: $gap + px;
+}
 
 // before,after
 @mixin pseudo($content, $width, $height) {

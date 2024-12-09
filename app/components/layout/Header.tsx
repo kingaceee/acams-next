@@ -56,10 +56,10 @@ export default function Header() {
 									<Link href='/program/CAMS-Audit'>고급 자격증</Link>
 								</li>
 								<li>
-									<Link href='/'>멤버십</Link>
+									<Link href='/membership'>멤버십</Link>
 								</li>
 								<li>
-									<Link href='/'>프로그램 신청</Link>
+									<Link href='/apply'>프로그램 신청</Link>
 								</li>
 							</ul>
 						</li>

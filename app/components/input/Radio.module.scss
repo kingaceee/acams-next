@@ -1,0 +1,41 @@
+
+
+.radio__btn {
+	@include flexCenter(start,8);
+
+	input[type=radio] {
+		position: relative;
+		padding: 0;
+		width: 16px;
+		min-width: 16px;
+		height: 16px;
+		min-height: 16px;
+		margin: 0;
+		border: 1px solid #808080;
+		border-radius: 50%;
+
+		&:checked {
+			border-color: #002368;
+			&:before {
+				content: '';
+				@include pos-center;
+				width: 8px;
+				min-width: 8px;
+				height: 8px;
+				min-height: 8px;
+				background: #002368;
+				border-radius: 50%;
+			}
+			&:disabled {
+				border-color: #888;
+				background: #fff;
+				&:before {
+					background: #888;
+				}
+			}
+		}
+	}
+	label {
+		font-size: 15px;
+	}
+}

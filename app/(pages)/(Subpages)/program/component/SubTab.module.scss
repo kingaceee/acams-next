@@ -5,16 +5,26 @@
 	}
 
 	&__item {
-		@include flexCenter(center);
-		height: 68px;
-		padding: 0 20px;
 		border-radius: 8px;
 		background: #EDEDED;
 
 		a {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			min-height: 68px;
+			padding: 16px 20px;
 			font-family: $effectFont;
 			color: #002368;
 			@include font(30,700);
+
+			.desc {
+				display: block;
+				margin-top: 4px;
+				font-size: 16px;
+			}
 		}
 		
 		&.active {

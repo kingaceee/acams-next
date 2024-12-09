@@ -1,0 +1,40 @@
+
+.chkbox {
+	&__btn {
+		@include flexCenter(start,8);
+
+		input[type=checkbox] {
+			width: 18px;
+			min-width: 18px;
+			height: 18px;
+			min-height: 18px;
+			margin: 0;
+			border: 1px solid #A0A5B2;
+
+			&:checked {
+				border-color: #002368;
+				background-color: #002368;
+				background-image: url('/images/icon/ico_check.svg');
+				background-size: 16px;
+				background-position: 50% 50%;
+
+				&:disabled {
+					border-color: #888;
+					background-color: #888;
+				}
+			}
+
+			&:disabled {
+				background-color: #888;
+			}
+		}
+		label {
+			font-size: 15px;
+
+			a {
+				display: inline;
+				text-decoration: underline;
+			}
+		}
+	}
+}

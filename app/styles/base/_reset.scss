@@ -41,13 +41,31 @@ meter {
   -webkit-appearance: revert;
   appearance: revert;
 }
+input {
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 ::placeholder {
-  color: unset;
+  font-family: 'NanumSquare';
+  color: #888;
+  font-size: 14px;
+}
+select {
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  option {
+    font-family: 'NanumSquare';
+  }
 }
 a,button {
   display: block;

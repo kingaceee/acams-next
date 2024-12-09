@@ -4,7 +4,8 @@ import styles from './SubTab.module.scss';
 interface Tab {
   url: string;
 	name: string;
-	active: boolean;
+  active: boolean;
+  desc?: string;
 }
 
 interface SubTabProps {
@@ -16,7 +17,9 @@ export default function SubTab({ tabs }: SubTabProps) {
     <ul className={styles.tab__sub}>
       {tabs.map((tab, index) => (
         <li key={index} className={`${styles.tab__item} ${tab.active ? styles.active : ''}`}>
-          <Link href={tab.url}>{tab.name}</Link>
+          <Link href={tab.url}>{tab.name}
+            {tab.desc && <span className={styles.desc}>{tab.desc}</span>}
+          </Link>
         </li>
       ))}
     </ul>

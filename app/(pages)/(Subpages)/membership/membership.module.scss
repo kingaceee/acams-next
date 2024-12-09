@@ -1,0 +1,41 @@
+.membership {
+	.title {
+		font-family: $effectFont;
+		color: #002368;
+		@include font(30,700);
+	}
+
+	.desc {
+		margin-top: 24px;
+		color: #333;
+	}
+
+	.benefit {
+		margin-top: 24px;
+
+		&__list {
+			display: flex;
+			gap: 20px;
+
+			li {
+				flex: 1 1 auto;
+				width: 100%;
+			}
+		}
+
+		&__title {
+			margin-top: 32px;
+			font-family: $effectFont;
+			color: #002368;
+			@include font(24,700);
+		}
+
+		&__desc {
+			margin-top: 16px;
+			color: #333;
+			font-size: 16px;
+			letter-spacing: -0.02em;
+			line-height: 24px;
+		}
+	}
+}

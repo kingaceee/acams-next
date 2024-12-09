@@ -11,6 +11,17 @@
 		@include font(28,700);
 		border-radius: 8px;
 
+		.title {
+			max-width: 720px;
+
+			.desc {
+				display: block;
+				margin-top: 8px;
+				font-family: "NanumSquare";
+				@include font(14,700);
+			}
+		}
+
 		@at-root .level1 {
 			.sub__title {
 				background: #071E5826;
@@ -26,6 +37,10 @@
 			.title {
 				color: #524D1C;
 			}
+			.price__title {
+				color: #7F792C;
+				border-color: #7F792C;
+			}
 		}
 		@at-root .level3 {
 			.sub__title {
@@ -34,11 +49,110 @@
 			.title {
 				color: #333333;
 			}
+			.price__title {
+				color: #222;
+				border-color: #4B5155;
+			}
 		}
 	}
 
 	&__desc {
-		padding: 32px 30px;
+		margin: 32px 0;
+		padding: 0 30px;
+	}
+
+	&__price {
+		margin-top: 50px;
+		padding: 50px 30px 0;
+		border-top: 1px solid #ccc;
+
+		.test__info {
+			.title {
+				color: #222;
+				line-height: 24px;
+
+				span {
+					display: block;
+					margin-bottom: 12px;
+					@include font(20,800);
+				}
+			}
+		}
+		&.type1 {
+			.test__info {
+				@include flexCenter(space-between);
+			}
+		}
+
+		.price {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 6px;
+			padding: 20px 40px;
+			border-radius: 8px;
+			background: #0D2E70;
+	
+			>span {
+				color: #CDCDCD;
+				@include font(14,700);
+			}
+	
+			p {
+				font-family: $effectFont;
+				color: #fff;
+				@include font(24,700);
+
+				span {
+					font-size: 14px;
+				}
+			}
+
+
+			&__group {
+				display: flex;
+				gap: 24px;
+				margin-top: 50px;
+				padding-top: 50px;
+				border-top: 1px solid #ccc;
+
+				.price {
+					height: 68px;
+					padding: 0;
+				}
+
+			}
+
+			&__box {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 16px;
+				flex: 1 1 100%;
+				padding: 20px;
+				border: 1px solid #ccc;
+				border-radius: 8px;
+
+			}
+
+			&__title {
+				height: 120px;
+				padding: 16px 20px;
+				@include font(18,700);
+				border: 1px solid;
+				border-radius: 8px;
+			}
+
+			&__desc {
+				padding: 8px 0;
+				@include font(14,700);
+
+				.bullet {
+					line-height: 18px;
+					white-space: pre-wrap;
+				}
+			}
+		}
 	}
 }
 
@@ -90,6 +204,7 @@
 					padding-left: 10px;
 					line-height: 18px;
 					text-align: justify;
+					white-space: pre-wrap;
 
 					& + .bullet {
 						margin-top: 4px;

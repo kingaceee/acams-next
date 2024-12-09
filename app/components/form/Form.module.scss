@@ -1,0 +1,71 @@
+
+// form
+.form {
+	&__group {
+		display: flex;
+		flex-direction: column;
+		padding: 50px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	&__title {
+		padding-bottom: 16px;
+		@include font(18,700);
+		border-bottom: 1px solid #ccc;
+	}
+
+	&__row {
+		display: flex;
+		align-items: center;
+		padding: 16px 0;
+
+		& + .form__row {
+			border-top: 1px dashed #ccc;
+		}
+
+		&.col2 {
+			gap: 20px;
+		}
+	}
+
+	&__item {
+		@include flexCenter(start,8);
+		flex: 1 1;
+	}
+
+	&__box {
+		width: 100%;
+		display: flex;
+
+		[class*=__box] {
+			width: 100%;
+
+			*:focus {
+				outline: 1px solid #18EAC2;
+			}
+		}
+
+		&:has(.alert--text) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__tit {
+		align-content: center;
+		width: 150px;
+		min-width: 150px;
+		color: #333;
+		@include font(14,700);
+	}
+}
+
+.select {
+	&__box {
+	}
+}
+
+.radio {
+	&__box {
+		@include flexCenter(start,24);
+	}
+}

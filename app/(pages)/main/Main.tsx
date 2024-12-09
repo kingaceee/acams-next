@@ -162,13 +162,6 @@ export default function Main() {
             </div>
             <div className={styles.card__row}>
               <CardBox
-                path="/program/CAMS-RM"
-                imgUrl="/images/main/img_main_card08.svg"
-                imgAlt="CAFCA"
-                titleLine1="Risk"
-                titleLine2="Management"
-              />
-              <CardBox
                 path="/program/CAMS-Audit"
                 imgUrl="/images/main/img_main_card09.svg"
                 imgAlt="CKYCA"
@@ -181,6 +174,13 @@ export default function Main() {
                 imgAlt="CTMA"
                 titleLine1="Financial Crimes"
                 titleLine2="Investigations"
+              />
+              <CardBox
+                path="/program/CAMS-RM"
+                imgUrl="/images/main/img_main_card08.svg"
+                imgAlt="CAFCA"
+                titleLine1="Risk"
+                titleLine2="Management"
               />
             </div>
           </div>
