@@ -54,10 +54,10 @@ export default function SubTab({ type, url, alt, title, tit_desc, desc, desc_lef
 						{list_left.desc_type === 'bullet' && (
 						<ul className={`${styles.desc} bullet--dash`}>
 							{Array.isArray(list_left.desc)
-								? list_left.desc.map((item, idx) => (
-									<li key={idx} className={`${styles.bullet} bullet`}>{item}</li>
-								))
-								: <li className={`${styles.bullet} bullet`}>{list_left.desc}</li>}
+							? list_left.desc.map((item, idx) => (
+								<li key={idx} className={`${styles.bullet} bullet`}>{item}</li>
+							))
+							: <li className={`${styles.bullet} bullet`}>{list_left.desc}</li>}
 						</ul>
 						)}
 					</div>
@@ -70,10 +70,10 @@ export default function SubTab({ type, url, alt, title, tit_desc, desc, desc_lef
 					<p className={styles.title}>{list_right.title}</p>
 					<ul className={`${styles.desc} bullet--dash`}>
 						{Array.isArray(list_right.desc)
-							? list_right.desc.map((item, idx) => (
-								<li key={idx} className={`${styles.bullet} bullet`}>{item}</li>
-							))
-							: <li className={`${styles.bullet} bullet`}>{list_right.desc}</li>}
+						? list_right.desc.map((item, idx) => (
+							<li key={idx} className={`${styles.bullet} bullet`}>{item}</li>
+						))
+						: <li className={`${styles.bullet} bullet`}>{list_right.desc}</li>}
 					</ul>
 				</div>
 				))}
@@ -84,7 +84,7 @@ export default function SubTab({ type, url, alt, title, tit_desc, desc, desc_lef
 				<div className={styles.test__info}>
 					<div className={styles.title}><span>시험</span>
 						{test_info.map((test, index) => (
-							<p key={index}>{test}</p>
+						<p key={index}>{test}</p>
 						))}
 					</div>
 
@@ -98,18 +98,17 @@ export default function SubTab({ type, url, alt, title, tit_desc, desc, desc_lef
 
 				{price_type === 'type2' && (
 				<div className={styles.price__group}>
-					{price_info
-					.map((price, index) => (
+					{price_info && price_info.map((price, index) => (
 						<div key={index} className={styles.price__box}>
 							<div className={styles.price__title}>
 								{price.type === "base" ? "기본 패키지" : "온라인 강의 패키지"}
 							</div>
 							<ul className={`${styles.price__desc} bullet--dash`}>
 							{Array.isArray(price.desc)
-								? price.desc.map((item, idx) => (
-									<li key={idx} className={`${styles.bullet} bullet`}>{item}</li>
-									))
-								: <li className={`${styles.bullet} bullet`}>{price.desc}</li>}
+							? price.desc.map((item, idx) => (
+								<li key={idx} className={`${styles.bullet} bullet`}>{item}</li>
+								))
+							: <li className={`${styles.bullet} bullet`}>{price.desc}</li>}
 							</ul>
 							<div className={styles.price}>
 								<span>민간 부문</span>

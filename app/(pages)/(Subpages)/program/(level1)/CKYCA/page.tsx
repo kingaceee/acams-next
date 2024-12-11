@@ -55,7 +55,7 @@ export default function CKYCA() {
 
   return (
     <>
-      <SubTab tabs={tabData} />
+      <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level1"
         url="/images/main/img_main_card02.svg"

@@ -120,8 +120,6 @@
 		}
 
 		&.faq {
-			display: flex;
-
 			.title {
 				width: 300px;
 				min-width: 300px;
@@ -134,6 +132,12 @@
 					color: #bbb;
 					@include font(20,800);
 				}
+			}
+
+			
+			.faq__inner {
+				display: flex;
+				align-items: center;
 			}
 		}
 	}

@@ -82,7 +82,7 @@ export default function CAMS_FCI() {
 
   return (
     <>
-      <SubTab tabs={tabData} />
+      <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level3"
         url="/images/main/img_main_card10.svg"

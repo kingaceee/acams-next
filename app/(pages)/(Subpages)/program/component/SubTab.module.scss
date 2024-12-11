@@ -2,36 +2,61 @@
 	&__sub {
 		@include flexCenter(center);
 		gap: 40px;
+
+		&.link {
+			a {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				min-height: 68px;
+				padding: 16px 20px;
+				font-family: $effectFont;
+				color: #002368;
+				@include font(30,700);
+	
+				.desc {
+					display: block;
+					margin-top: 4px;
+					font-size: 16px;
+				}
+			}
+		}
+
+		&.filter {
+			gap: 12px;
+			cursor: pointer;
+
+			.tab__item {
+				@include flexCenter(center);
+				flex: 1 1 auto;
+				min-height: 66px;
+				// padding: 0 18px;
+				color: #002368;
+				@include font(16,700);
+				white-space: nowrap;
+				border-radius: 0;
+				background: #F2F2F2;
+			
+				&.active {
+					color: #fff;
+					font-weight: 800;
+					background: #002368;
+				}
+			}
+		}
 	}
 
 	&__item {
 		border-radius: 8px;
 		background: #EDEDED;
-
-		a {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			width: 100%;
-			min-height: 68px;
-			padding: 16px 20px;
-			font-family: $effectFont;
-			color: #002368;
-			@include font(30,700);
-
-			.desc {
-				display: block;
-				margin-top: 4px;
-				font-size: 16px;
-			}
-		}
-		
+			
 		&.active {
+			font-weight: 800;
 			background: #002368;
 
 			a {
-				font-family: $effectFont;
 				color: #fff;
 			}
 		}

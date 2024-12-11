@@ -1,0 +1,57 @@
+
+.accordion {
+	height: 100%;
+
+	&__row {
+		border: 1px solid #E8E8E8;
+		border-width: 1px 0 1px 0;
+
+		&.active {
+			.accordion__title {
+				&:after {
+					transform: rotate(180deg);
+					transition: all .3s ease-in-out;
+				}
+			}
+		}
+	}
+
+	&__title {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		min-height: 90px;
+		padding: 16px 0;
+		@include font(20,700);
+		cursor: pointer;
+
+		&:before {
+			content: 'Q.';
+			@include font(32,800);
+
+		}
+		&:after {
+			content:'';
+			display: block;
+			width: 24px;
+			min-width: 24px;
+			height: 24px;
+			margin-left: auto;
+			background-image: url('/images/icon/ico_arrow_down.svg');
+			background-size: 24px;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			transition: all .3s ease-in-out;
+		}
+	}
+
+	&__content {
+		overflow: hidden;
+    height: 0;
+		padding: 0 50px;
+		color: #333;
+		border-top: 1px solid #E8E8E8;
+		background: #FBFBFB;
+    transition: all 0.3s ease;
+	}
+}

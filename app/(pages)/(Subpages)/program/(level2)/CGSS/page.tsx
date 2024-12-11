@@ -101,7 +101,7 @@ export default function CAMS() {
 
   return (
     <>
-      <SubTab tabs={tabData} />
+      <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level2"
         url="/images/main/img_main_card05.svg"

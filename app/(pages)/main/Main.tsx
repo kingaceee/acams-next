@@ -14,6 +14,7 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
+import Accordion from "@/app/components/util/Accordion";
 
 export default function Main() {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -33,6 +34,29 @@ export default function Main() {
       });
     }
   }, []);
+
+	const faq_data = [
+		{
+			title: "CAMS 시험 시간과 합격 기준은 어떻게 되나요?",
+			content: "시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다.시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다.시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다.시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다.시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다.시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다.시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다.시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다.시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다."
+		},
+		{
+			title: "시험 링크는 언제 제공되며, 어떻게 확인하나요?",
+			content: "시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다."
+		},
+		{
+			title: "시험에 추천되는 브라우저는 무엇인가요?",
+			content: "시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다."
+		},
+		{
+			title: "시험을 위한 장비 요건은 무엇인가요?",
+			content: "시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다."
+		},
+		{
+			title: "감독관과 시험 중 의사소통은 어떻게 이루어지나요?감독관과 시험 중 의사소통은 어떻게 이루어지나요?감독관과 시험 중 의사소통은 어떻게 이루어지나요?감독관과 시험 중 의사소통은 어떻게 이루어지나요?",
+			content: "시험 시간은 210분이며, 총 120문제 중 75문제 이상을 맞추면 합격입니다. CAMS 외 기타 시험의 시간은 시험마다 상이합니다."
+		},
+	]
 
   return (
     <div className="page__main">
@@ -206,16 +230,13 @@ export default function Main() {
 
       <section className={`${styles.main__section} ${styles.faq}`}>
         <div className={styles.main__inner}>
-          <div className={styles.faq}>
+          <div className={styles.faq__inner}>
             <div className={styles.title}>
               <span className={styles.desc}>Finger AML Hub</span>
               FAQ
             </div>
 
-            {/*
-						todo : accordian component 만들어야함
-						<Faq />
-					*/}
+            <Accordion Data={faq_data} maxRow={3}/>
           </div>
         </div>
       </section>
