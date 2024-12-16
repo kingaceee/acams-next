@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import styles from "./about.module.scss";
-import Image from "next/image";
-import Bullet from "@/app/components/util/Bullet";
+import Bullet from "@/components/util/Bullet";
 
 export const metadata: Metadata = {
   title: "About"

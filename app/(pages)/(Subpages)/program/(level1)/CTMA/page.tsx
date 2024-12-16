@@ -37,6 +37,7 @@ export default function CTMA() {
   const listRight = [
     {
       title: "조직을 위한 혜택",
+      desc_type: "bullet",
       desc: [
         "CTMA는 일관적인 표준을 적용하여 조직의 TM 인력이 역할 기반 지식의 객관적이고 세심하게 확립된 벤치마크를 입증할 수 있도록 합니다.",
         "글로벌 자격증인 CTMA를 통해 다국적 조직은 글로벌 네트워크에 일관된 단일 프로그램을 적용할 수 있습니다.",
@@ -45,6 +46,7 @@ export default function CTMA() {
     },
     {
       title: "이 자격증이 도움이 되는 직책",
+      desc_type: "bullet",
       desc: [
         "거래 모니터링 분석가",
         "Alert 처리자",

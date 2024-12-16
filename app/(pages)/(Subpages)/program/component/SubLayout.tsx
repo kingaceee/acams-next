@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import styles from './SubLayout.module.scss';
 import Image from 'next/image';
-import Bullet from '@/app/components/util/Bullet';
+import Bullet from '@/components/util/Bullet';
 
 interface PriceInfo  {
 	type: string;
@@ -16,6 +16,7 @@ interface DescItem  {
   title: string;
 	desc: string | string[];
 	desc_type?: string;
+	bulletTop?: string;
 }
 
 interface SubLayoutProps {
@@ -72,13 +73,15 @@ export default function SubTab({ type, url, alt, title, tit_desc, desc, desc_lef
 						<div className={styles.desc}>{list_left.desc}</div>
 						)}
 						{list_left.desc_type === 'bullet' && (
-						<Bullet
-							type="dash"
-							bullet={Array.isArray(list_left.desc) 
-								? list_left.desc.map((text) => ({ text })) 
-								: [{ text: list_left.desc }]
-							}
-						/>
+						<div className={styles.desc}>
+							<Bullet
+								type="dash"
+								bullet={Array.isArray(list_left.desc) 
+									? list_left.desc.map((text) => ({ text })) 
+									: [{ text: list_left.desc }]
+								}
+							/>
+						</div>
 						)}
 					</div>
 					))}
@@ -92,13 +95,16 @@ export default function SubTab({ type, url, alt, title, tit_desc, desc, desc_lef
 						<div className={styles.desc}>{list_right.desc}</div>
 						)}
 						{list_right.desc_type === 'bullet' && (
-						<Bullet
-							type="dash"
-							bullet={Array.isArray(list_right.desc)
-								? list_right.desc.map((text) => ({ text }))
-								: [{ text: list_right.desc }]
-							}
-						/>
+						<div className={styles.desc}>
+							{list_right.bulletTop && <p>{list_right.bulletTop}</p>}
+							<Bullet
+								type="dash"
+								bullet={Array.isArray(list_right.desc)
+									? list_right.desc.map((text) => ({ text }))
+									: [{ text: list_right.desc }]
+								}
+							/>
+						</div>
 						)}
 					</div>
 					))}
@@ -128,13 +134,13 @@ export default function SubTab({ type, url, alt, title, tit_desc, desc, desc_lef
 							<div className={styles.price__title}>
 								{price.type === "base" ? "기본 패키지" : "온라인 강의 패키지"}
 							</div>
-							<ul className={`${styles.price__desc} bullet--dash`}>
-							{Array.isArray(price.desc)
-							? price.desc.map((item, idx) => (
-								<li key={idx} className={`${styles.bullet} bullet`}>{item}</li>
-								))
-							: <li className={`${styles.bullet} bullet`}>{price.desc}</li>}
-							</ul>
+							<Bullet
+								type="dash"
+								bullet={Array.isArray(price.desc)
+									? price.desc.map((text) => ({ text }))
+									: [{ text: price.desc }]
+								}
+							/>
 							<div className={styles.price}>
 								<span>민간 부문</span>
 								<p>$ {price.price1} <span>USD</span></p>

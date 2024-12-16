@@ -10,12 +10,16 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+			const isMobile = window.innerWidth <= 768;
+
+			if (isMobile && window.scrollY > 50) {
+				setIsScrolled(true);
+			} else if (!isMobile && window.scrollY > 200) {
+				setIsScrolled(true);
+			} else {
+				setIsScrolled(false);
+			}
+		};
 
     window.addEventListener('scroll', handleScroll);
 
@@ -29,6 +33,9 @@ export default function Header() {
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
 	};
+	const closeMenu = () => {
+    setIsOpen(false);
+  };
 	
 	return (
 		<header className={`${styles.header} ${isScrolled ? styles.scroll : ''}`}>
@@ -76,31 +83,31 @@ export default function Header() {
 				<button className={`${styles.gnb__btn} show-mo`} onClick={toggleMenu}><span className="blind">menu 열기</span></button>
 				<nav className={`${styles.gnb} show-mo ${isOpen ? styles.isOpen : ''}`}>
 					<ul className={styles.gnb__mobile}>
-						<li>
+						<li onClick={closeMenu}>
 							<Image src="/images/common/ACAMS-logo-sm.svg" width={20} height={20} alt='ACAMS logo' />
 						</li>
-						<li>
+						<li onClick={closeMenu}>
 							<Link href="/intro">소개</Link>
 						</li>
-						<li>
+						<li onClick={closeMenu}>
 							<Link href='/about'>About ACAMS</Link>
 						</li>
-						<li>
+						<li onClick={closeMenu}>
 							<Link href='/program/CKYCA'>초급 자격증</Link>
 						</li>
-						<li>
+						<li onClick={closeMenu}>
 							<Link href='/program/CAMS'>중급 자격증</Link>
 						</li>
-						<li>
+						<li onClick={closeMenu}>
 							<Link href='/program/CAMS-Audit'>고급 자격증</Link>
 						</li>
-						<li>
+						<li onClick={closeMenu}>
 							<Link href='/membership'>멤버십</Link>
 						</li>
-						<li>
+						<li onClick={closeMenu}>
 							<Link href='/apply'>프로그램 신청</Link>
 						</li>
-						<li>
+						<li onClick={closeMenu}>
 							<Link href="/faq">FAQ</Link>
 						</li>
 					</ul>

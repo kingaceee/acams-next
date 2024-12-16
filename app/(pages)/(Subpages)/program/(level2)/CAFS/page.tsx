@@ -34,6 +34,7 @@ export default function CAMS() {
   const listRight = [
     {
       title: "CAFS 취득 대상",
+      desc_type: "bullet",
       desc: [
 				'CAFS 자격증은 다음과 같은 전문가들에게 혜택이 있습니다.',
 				'사기 예방, 탐지 및 대응을 담당하는 팀의 전문가',
@@ -45,16 +46,13 @@ export default function CAMS() {
     },
     {
       title: "CAFS 준비 및 지원",
+      desc_type: "bullet",
+      bulletTop: "CAFS 자격증을 취득하려면 다음과 같은 준비가 필요합니다.",
       desc: [
-				'CAFS 자격증을 취득하려면 다음과 같은 준비가 필요합니다.',
 				'ACAMS 회원 유지',
 				'시험 응시 자격 충족 (40점 이상 필요)',
 				'신청서 제출 및 비용 납부',
       ],
-    },
-    {
-      title: "CAFS 시험 구성",
-      desc: "자격 요건을 요약한 신청서를 제출하고 Pearson VUE를 통해 CAFS 시험 일정을 예약합니다.",
     },
   ];
 
@@ -62,8 +60,6 @@ export default function CAMS() {
 		'CAFS 시험은 총 100개의 객관식 문제로 구성되어 있으며, 시험 합격을 위한 최소 점수는 75점입니다.',
 		'시험 시간은 총 175분이며, 오답에 대한 불이익이 없기 때문에 답변하지 않고 비워두는 문제가 없도록 시험을 치르는 것이 좋습니다.',
 	];
-	
-  const priceInfo = []
 
   return (
     <>
@@ -78,7 +74,6 @@ export default function CAMS() {
         desc_right={listRight}
         price_type="type2"
 				test_info={testInfo}
-        price_info={priceInfo}
       />
     </>
   );

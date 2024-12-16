@@ -121,30 +121,6 @@
 				display: flex;
 				flex-direction: column;
 				gap: 16px;
-
-				:global {
-					@for $i from 1 through 10 {
-						.card#{$i} {
-							&:before {
-								content: '';
-								display: block;
-								width: 100%;
-								height: 244px;
-								min-height: 244px;
-								background-image: url('/images/main/img_main_card#{$i}.svg?');
-								background-repeat: no-repeat;
-								background-position: 50% 50%;
-								background-size: 230px 180px;
-
-								@include mobile {
-									height: vw-mo(114);
-									min-height: vw-mo(114);
-									background-size: vw-mo(116) vw-mo(90);
-								}
-							}
-						}
-					}
-				}
 				
 				// PC
 				&__row {
@@ -157,18 +133,40 @@
 					grid-template-columns: repeat(2, 1fr);
 					gap: vw-mo(8);
 
-					:global .font16 {
+					:global(.font16) {
 						font-size: vw-mo(8) !important;
 					}
 				}
 			}
 
-			:global .show-mo {
+			@for $i from 1 through 10 {
+			:global(.card#{$i}) {
+				&:before {
+					content: '';
+					display: block;
+					width: 100%;
+					height: 244px;
+					min-height: 244px;
+					background-image: url('/images/main/img_main_card#{$i}.svg');
+					background-repeat: no-repeat;
+					background-position: 50% 50%;
+					background-size: 230px 180px;
+	
+					@include mobile {
+						height: vw-mo(114);
+						min-height: vw-mo(114);
+						background-size: vw-mo(116) vw-mo(90);
+					}
+				}
+				}
+			}
+
+			:global(.show-mo) {
 				display: none;
 			}
 
 			@include mobile {
-				:global .show-mo {
+				:global(.show-mo) {
 					display: grid;
 				}
 

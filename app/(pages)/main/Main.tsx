@@ -7,49 +7,48 @@ import CardBox from "./component/Card/CardBox";
 import BannerBox from "./component/Banner/Banner";
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import Accordion from "@/components/util/Accordion";
+import { useEffect } from "react";
 
 export default function Main() {
-  if (typeof window !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, useGSAP);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
 
-    const response = gsap.matchMedia();
+      const response = gsap.matchMedia();
 
-    response.add("(min-width: 768px)", () => {
-      useGSAP ( () => {
+      response.add("(min-width: 768px)", () => {
         const boxes = gsap.utils.toArray('.scrollCard');
-        boxes.forEach((box) => {
-          gsap.set(boxes, {
-            y: 60,
-            opacity: 0,
-            duration: 1,
-            ease: 'power2.out',
-            // overwrite: 'auto',
-          });
-  
-          const trigger = document.querySelector('.scrollBox');
-  
-          ScrollTrigger.create({
-            trigger: trigger,
-            start: 'top 60%',
-            end: 'bottom',
-            markers: true,
-            onEnter: () => gsap.to(boxes, {
-              y: 0,
-              opacity: 1,
-              stagger: 0.3,
-            }),
-          });
+        gsap.set(boxes, {
+          y: 60,
+          opacity: 0,
+          duration: 1,
+          ease: 'power2.out',
         });
-        }
-      );
-    });
-  }
+
+        const trigger = document.querySelector('.scrollBox');
+        ScrollTrigger.create({
+          trigger: trigger,
+          start: 'top 60%',
+          end: 'bottom',
+          onEnter: () => gsap.to(boxes, {
+            y: 0,
+            opacity: 1,
+            stagger: 0.3,
+          }),
+        });
+      });
+
+      return () => {
+        response.revert();
+        ScrollTrigger.killAll();
+      };
+    }
+  }, []);
 
 	const faq_data = [
 		{

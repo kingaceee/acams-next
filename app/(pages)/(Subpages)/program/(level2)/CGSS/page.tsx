@@ -39,8 +39,9 @@ export default function CAMS() {
   const listRight = [
     {
       title: "응시자 프로필",
+      desc_type: "bullet",
+      bulletTop: 'CGSS는 다음 분야의 중고위급 전문가에게 적합합니다.',
       desc: [
-				'CGSS는 다음 분야의 중고위급 전문가에게 적합합니다.',
 				'제재 컴플라이언스',
 				'경제 제재',
 				'금융 제재',
@@ -56,6 +57,7 @@ export default function CAMS() {
     },
     {
       title: "핵심 주제",
+      desc_type: "bullet",
       desc: [
 				'거버넌스 및 집행',
 				'제재 회피 기법',
@@ -66,6 +68,7 @@ export default function CAMS() {
     },
     {
       title: "자격증 취득 준비",
+      desc_type: "text",
       desc: "자격 및 경력을 기술한 신청서를 제출하고 Pearson VUE를 통해 CGSS 시험 일정을 예약합니다.",
     },
   ];

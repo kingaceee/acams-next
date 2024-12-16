@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-import { getCerifications } from '@api/certification';
+import { getCerifications } from '@/api/certification';
 
-import CertificationSelect, { PropTypes as CertificationSelectPropTypes } from '@apply/components/CertificationSelect';
+import CertificationSelect, { PropTypes as CertificationSelectPropTypes } from '@/apply/components/CertificationSelect';
 
 export interface PropTypes {
   selected: CertificationSelectPropTypes['selected'];

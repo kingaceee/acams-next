@@ -16,14 +16,26 @@
 
 	& + .bullet {
 		margin-top: 4px;
+
+		@include mobile {
+			margin-top: vw-mo(3);
+		}
 	}
 
 	&:has(.dep2) ~ .bullet {
 		margin-top: 10px;
+
+		@include mobile {
+			margin-top: vw-mo(10);
+		}
 	}
 
 	.dep2 {
 		margin-top: 6px;
+
+		@include mobile {
+			margin-top: vw-mo(4);
+		}
 	}
 
 	a {
@@ -32,6 +44,10 @@
 
 	&__desc {
 		margin-top: 4px;
+
+		@include mobile {
+			margin-top: vw-mo(3);
+		}
 	}
 
 	&--dash {

@@ -130,17 +130,19 @@
 	}
 
 	@include mobile {
+		overflow-y: auto;
 		position: fixed;
 		top: vw-mo(54);
-		left: 0;
+		left: 100%;
 		width: 100%;
-		height: fit-content;
+		height: 100%;
 		background: #fff;
-
-		display: none !important;
+		display: block !important;
+		transition: all .3s ease-in-out;
 
 		&.isOpen {
-			display: block !important;
+			left: 0;
+			transition: all .3s ease-in-out;
 		}
 
 		&__btn {
@@ -150,7 +152,6 @@
 		}
 
 		&__mobile {
-
 			li {
 				@include flexCenter(center);
 				height: vw-mo(52);

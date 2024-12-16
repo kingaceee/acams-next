@@ -30,12 +30,28 @@
 			flex-direction: column;
 			justify-content: center;
 			gap: vw-mo(16);
-			padding: vw-mo(30 20);
+			padding: vw-mo(40 20 20);
 			font-size: vw-mo(20);
+
+			&:has(.desc) {
+				position: relative;
+				padding-bottom: vw-mo(60);
+			}
 
 			.title {
 				padding: vw-mo(0 40);
 				text-align: center;
+
+				.desc {
+					position: absolute;
+					bottom: vw-mo(24);
+					left: 50%;
+					transform: translateX(-50%);
+					width: 100%;
+					margin-top: 0;
+					padding: vw-mo(0 10);
+					font-size: vw-mo(12);
+				}
 			}
 		}
 
@@ -81,6 +97,7 @@
 		@include mobile {
 			margin: vw-mo(32 0);
 			padding: 0;
+			line-height: vw-mo(20);
 		}
 	}
 
@@ -88,6 +105,11 @@
 		margin-top: 50px;
 		padding: 50px 30px 0;
 		border-top: 1px solid #ccc;
+
+		@include mobile {
+			margin-top: vw-mo(20);
+			padding: vw-mo(20 0 0);
+		}
 
 		.test__info {
 			.title {
@@ -99,11 +121,25 @@
 					margin-bottom: 12px;
 					@include font(20,800);
 				}
+
+				@include mobile {
+					line-height: vw-mo(20);
+
+					span {
+						margin-bottom: vw-mo(12);
+						font-size: vw-mo(15);
+					}
+				}
 			}
 		}
 		&.type1 {
 			.test__info {
 				@include flexCenter(space-between);
+
+				@include mobile {
+					flex-direction: column;
+					gap: vw-mo(20);
+				}
 			}
 		}
 
@@ -116,10 +152,20 @@
 			padding: 20px 40px;
 			border-radius: 8px;
 			background: #0D2E70;
+
+			@include mobile {
+				gap: vw-mo(6);
+				width: 100%;
+				padding: vw-mo(30);
+			}
 	
 			>span {
 				color: #CDCDCD;
 				@include font(14,700);
+
+				@include mobile {
+					font-size: vw-mo(12);
+				}
 			}
 	
 			p {
@@ -129,6 +175,14 @@
 
 				span {
 					font-size: 14px;
+				}
+
+				@include mobile {
+					font-size: vw-mo(20);
+
+					span {
+						font-size: vw-mo(12);
+					}
 				}
 			}
 
@@ -145,6 +199,18 @@
 					padding: 0;
 				}
 
+				@include mobile {
+					flex-direction: column;
+					margin-top: vw-mo(24);
+					padding-top: 0;
+					border-top: 0;
+
+					.price {
+						height: vw-mo(62);
+						padding: vw-mo(10);
+						border-radius: vw-mo(8);
+					}
+				}
 			}
 
 			&__box {
@@ -156,6 +222,13 @@
 				border: 1px solid #ccc;
 				border-radius: 8px;
 
+				@include mobile {
+					gap: vw-mo(16 8);
+					padding: vw-mo(24) 0 0 0;
+					border: 1px dashed #ccc;
+					border-width: 1px 0 0 0;
+					border-radius: 0;
+				}
 			}
 
 			&__title {
@@ -164,15 +237,36 @@
 				@include font(18,700);
 				border: 1px solid;
 				border-radius: 8px;
-			}
 
-			&__desc {
-				padding: 8px 0;
-				@include font(14,700);
+				& + ul {
+					padding: 8px 0;
+					@include font(14,700);
+	
+					li {
+						line-height: 18px;
+					}
+	
+					@include mobile {
+						grid-column: span 2;
 
-				.bullet {
-					line-height: 18px;
-					white-space: pre-wrap;
+						padding: vw-mo(8 10);
+						font-size: vw-mo(14);
+						border-radius: vw-mo(8);
+
+						li {
+							line-height: vw-mo(21);
+						}
+					}
+				}
+
+				@include mobile {
+					grid-column: span 2;
+
+					height: vw-mo(52);
+					padding: vw-mo(16 20);
+					font-size: vw-mo(15);
+					line-height: vw-mo(24);
+					text-align: center;
 				}
 			}
 		}
@@ -215,7 +309,6 @@
 				letter-spacing: -0.02em;
 				line-height: 27px;
 			}
-			
 
 			@include mobile {
 				.title {
@@ -231,32 +324,32 @@
 
 				.desc {
 					padding: vw-mo(16) 0 0;
+					font-size: vw-mo(14);
 					line-height: vw-mo(20);
 				}
 			}
 		}
+
 		&.right {
 			width: 280px;
 			min-width: 280px;
 
 			.title {
-				margin-bottom: 8px;
+				margin-bottom: 10px;
 				color: #002368;
 				@include font(18,800);
 			}
 
 			.desc {
 				font-size: 14px;
+				line-height: 20px;
 
-				.bullet {
-					padding-left: 10px;
-					line-height: 18px;
-					text-align: justify;
-					white-space: pre-wrap;
+				p {
+					margin-bottom: 10px;
+				}
 
-					& + .bullet {
-						margin-top: 4px;
-					}
+				ul {
+					line-height: normal;
 				}
 			}
 			
@@ -264,6 +357,15 @@
 			@include mobile {
 				width: 100%;
 				min-width: auto;
+
+				.title {
+					margin-bottom: vw-mo(10);
+				}
+
+				.desc {
+					font-size: vw-mo(13);
+					line-height: vw-mo(18);
+				}
 			}
 		}
 	}

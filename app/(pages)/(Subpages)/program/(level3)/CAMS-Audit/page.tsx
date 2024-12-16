@@ -33,8 +33,9 @@ export default function CAMS() {
   const listRight = [
     {
       title: "Advanced CAMS-Audit은 누구를 위한 것인가?",
+      desc_type: "bullet",
+      bulletTop: "금융범죄방지 감사를 수행하는 모든 회사는 CAMS-Audit 자격을 갖춘 리더를 보유함으로써 이득을 얻을 수 있습니다. 이는 다음과 같습니다:",
       desc: [
-				'금융범죄방지 감사를 수행하는 모든 회사는 CAMS-Audit 자격을 갖춘 리더를 보유함으로써 이득을 얻을 수 있습니다. 이는 다음과 같습니다:',
 				'은행',
 				'비은행 금융기관',
 				'핀테크',
@@ -45,10 +46,12 @@ export default function CAMS() {
     },
     {
       title: "자격증 취득 준비",
+      desc_type: "text",
       desc: "자격 및 경력을 기재하여 신청서를 제출하고 Pearson VUE를 통해 Advanced CAMS-Audit 시험 일정을 예약합니다.",
     },
     {
       title: "자격 요건은 무엇인가?",
+      desc_type: "text",
       desc: "응시자는 CAMS 자격증을 보유하고 있어야 합니다. 응시자는 최소 5년 이상의 감사 또는 감사 관련 경험이 있는 것이 좋습니다.",
     },
   ];

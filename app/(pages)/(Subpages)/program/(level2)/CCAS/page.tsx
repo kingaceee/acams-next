@@ -39,6 +39,7 @@ export default function CAMS() {
   const listRight = [
     {
       title: "응시자 프로필",
+      desc_type: "bullet",
       desc: [
 				'AML 및 KYC 애널리스트',
 				'거래 모니터링 애널리스트',
@@ -60,8 +61,9 @@ export default function CAMS() {
     },
     {
       title: "핵심 주제",
+      desc_type: "bullet",
+      bulletTop: "이 자격증 프로그램은 가상 자산 분야 관련 주요 주제를 포함합니다. 교육 과정은 다음과 같은 3개의 ACAMS 온라인 자격증 학습 과정을 포함합니다.",
       desc: [
-				'이 자격증 프로그램은 가상 자산 분야 관련 주요 주제를 포함합니다. 교육 과정은 다음과 같은 3개의 ACAMS 온라인 자격증 학습 과정을 포함합니다.',
 				'가상 자산 및 블록체인 과정',
 				'가상 자산 및 블록체인에 대한 자금세탁방지 기본 원칙 과정',
 				'가상 자산 및 블록체인에 대한 위험 관리 프로그램 과정',
@@ -69,6 +71,7 @@ export default function CAMS() {
     },
     {
       title: "자격증 취득 준비",
+      desc_type: "text",
       desc: "자격 요건을 요약한 신청서를 제출하고 Pearson VUE를 통해 CCAS 시험 일정을 예약합니다.",
     },
   ];

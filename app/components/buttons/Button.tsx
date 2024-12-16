@@ -1,20 +1,25 @@
+import styles from './Button.module.scss';
 
-import styles from './Button.module.scss'
+import { ButtonHTMLAttributes } from 'react';
+import cs from 'clsx';
 
-interface ButtonProps {
-	id?: string;
-	label?: string;
-	publType?: string;
+export interface PropTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
+  label: string;
+  publType?: 'primary' | 'border';
 }
 
-export default function Button({id, label, publType}: ButtonProps) {
-	return (
-		<button
-			type="button"
-			id={id}
-			className={`${styles.btn} ${publType ? styles[publType] : ''}`}
-		>
-			{label}
-		</button>
-	);
+export default function Button({ label, publType, type = 'button', ...buttonProps }: PropTypes) {
+  return (
+    <button
+      {...buttonProps}
+      type={type}
+      className={cs({
+        [styles.btn]: true,
+        [styles.primary]: publType === 'primary',
+        [styles.border]: publType === 'border',
+      })}
+    >
+      {label}
+    </button>
+  );
 }

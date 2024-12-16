@@ -3,31 +3,26 @@
 import styles from './index.module.scss';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 
-import { CreateType, Language, PackageType } from '@api/enrollment';
+import useBoolean from '@/hooks/useBoolean';
 
-import Checkbox from '@/components/input/Checkbox';
 import Radio from '@/components/input/Radio';
 import InputBox from '@/components/input/InputBox';
 import Select from '@/components/input/Select';
 import Button from '@/components/buttons/Button';
-import Modal from '@/components/modal/Modal';
 // import FormGroup from "@/components/form/Form";
 
-import LabelBox from '@apply/components/LabelBox';
-import LanguageRadio, { PropTypes as LanguageRadioPropTypes } from '@apply/components/LanguageRadio';
-import PackageRadio, { PropTypes as PackageRadioPropTypes } from '@apply/components/PackageRadio';
+import LabelBox from '@/apply/components/LabelBox';
+import LanguageRadio, { PropTypes as LanguageRadioPropTypes } from '@/apply/components/LanguageRadio';
+import PackageRadio, { PropTypes as PackageRadioPropTypes } from '@/apply/components/PackageRadio';
+import PriceSummary from '@/apply/components/PriceSummary';
+import ConfirmCheckBox, { PropTypes as ConfirmCheckBoxPropTypes } from '@/apply/components/ConfirmCheckBox';
+import Complete from '@/apply/components/Complete';
 
 import CertificationSelectContainer, {
   PropTypes as CertificationSelectContainerPropTypes,
-} from '@apply/containers/CertificationSelectContainer';
-import MembershipRadiosContainer, { PropTypes as MembershipRadioContainerPropTypes } from '@apply/containers/MembershipRadiosContainer';
-
-import Terms from '@terms/components/TermsComponent';
-import Privacy from '@privacy/components/PrivacyComponent';
-import PriceSummary from '../../components/PriceSummary';
-import ConfirmCheckBox from '../../components/ConfirmCheckBox';
+} from '@/apply/containers/CertificationSelectContainer';
+import MembershipRadiosContainer, { PropTypes as MembershipRadioContainerPropTypes } from '@/apply/containers/MembershipRadiosContainer';
 
 const userInfo = [
   {
@@ -143,10 +138,10 @@ const select_title = [
 function ApplyContainer() {
   const [selectedCertification, setSelectedCertification] = useState<CertificationSelectContainerPropTypes['selected']>();
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageRadioPropTypes['selectedLanguage']>();
-  const [selectedMembership, setSelectedMembership] = useState<MembershipRadioContainerPropTypes['selectedMembership']>();
   const [selectedPackage, setSelectedPackage] = useState<PackageRadioPropTypes['selectedPackage']>();
+  const [selectedMembership, setSelectedMembership] = useState<MembershipRadioContainerPropTypes['selectedMembership']>();
 
-  console.log('selectedMembership', selectedMembership);
+  const { value: submitStatus, setFalse: disableSubmit, setTrue: enableSubmit } = useBoolean(true);
 
   const handleChangeCertification: CertificationSelectContainerPropTypes['onChange'] = selected => {
     setSelectedCertification(selected);
@@ -164,33 +159,10 @@ function ApplyContainer() {
     setSelectedPackage(packageId);
   };
 
-  const [member, setMember] = useState<{
-    createType: CreateType;
-    membershipNumber: string;
-    lastNameEng: string;
-    firstNameEng: string;
-    lastNameKor: string;
-    firstNameKor: string;
-    companyNameEng: string;
-    companyNameKor: string;
-    industry: string;
-    departmentEng: string;
-    departmentKor: string;
-    positionKor: string;
-    positionEng: string;
-    email: string;
-    officeNumber: string;
-    phoneNumber: string;
-    subEmail: string;
-    honorific: string;
-  }>();
-
-  const [program, setProgram] = useState<{
-    certificationId: string;
-    language: Language;
-    packageType: PackageType;
-    membershipId: string;
-  }>();
+  const handleChangeSubmitStatus: ConfirmCheckBoxPropTypes['onChangeCheck'] = value => {
+    if (value) enableSubmit();
+    else disableSubmit();
+  };
 
   return (
     <>
@@ -418,32 +390,15 @@ function ApplyContainer() {
 
           <div className={`${styles.apply__box} ${styles.check}`}>
             <strong className={styles.title}>확인사항</strong>
-            <ConfirmCheckBox onChangeCheck={() => {}} />
+            <ConfirmCheckBox onChangeCheck={handleChangeSubmitStatus} />
           </div>
 
           <div className={styles.apply__footer}>
-            <Button id='btnApply' label='신청하기' publType='primary' />
+            <Button label='신청하기' publType='primary' disabled={submitStatus} />
           </div>
         </form>
-
-        {/* [Dev] hidden class toggle 노출/비노출 */}
-        <div className={`${styles.apply__complete} hidden`}>
-          <Image src='/images/sub/ico_sub_apply_complite.svg' width={50} height={50} alt='신청완료 icon' aria-hidden={true} />
-          <strong>신청 완료</strong>
-          <div className={styles.desc}>
-            ACAMS 접수 완료 까지 3~5일정도 소요 되며, <br />
-            접수 완료 후 ACAMS에서 발신하는 이메일의 안내에 따라 주시기 바랍니다.
-          </div>
-        </div>
+        <Complete />
       </div>
-
-      <Modal isOpen={false} modalTitle='이용약관' buttons={[{ label: '확인', publType: 'primary' }]}>
-        <Terms />
-      </Modal>
-
-      <Modal isOpen={false} modalTitle='개인정보처리방침' buttons={[{ label: '확인', publType: 'primary' }]}>
-        <Privacy />
-      </Modal>
     </>
   );
 }

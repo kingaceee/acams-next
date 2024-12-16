@@ -1,0 +1,18 @@
+.apply__complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding-top: 100px;
+
+  strong {
+    @include font(24, 700);
+  }
+
+  .desc {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+}

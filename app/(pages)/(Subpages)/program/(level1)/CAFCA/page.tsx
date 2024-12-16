@@ -28,7 +28,7 @@ export default function CAFCA() {
   const listRight = [
     {
       title: "프로그램의 대상",
-      desc_type: "text",
+      desc_type: "bullet",
       desc: [
         "AML 업무를 겸임하는 직원이 있는 소형스타트업",
         "보다 구조화된 AML 프로그램으로 전환 중인 중형 핀테크",

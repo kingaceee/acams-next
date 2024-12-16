@@ -62,7 +62,7 @@ export default function CKYCA() {
         type="level1"
         url="/images/main/img_main_card2.svg"
         alt="CKYCA"
-        title="KNOW UOUR CUSTOMER ASSOCIATE"
+        title="KNOW YUOUR CUSTOMER ASSOCIATE"
         desc="효과적인 KYC/CDD는 금융 범죄를 예방하기 위해 필수적이며, 새로운 ACAMS 자격증인 CKYCA(Certified Know Your Customer Associate)는 해당 분야의 전문가를 위한 새로운 글로벌 기준을 제공합니다. CKYCA는 금융 기관을 보호하는 데 중요한 역할을 하는 프론트 라인팀과 운영 팀을 위해 개발된 ACAMS의 첫 번째 자격증입니다."
         desc_left={listLeft}
         desc_right={listRight}

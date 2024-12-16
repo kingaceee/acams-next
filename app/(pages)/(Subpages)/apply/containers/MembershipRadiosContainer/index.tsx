@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { getMemberships } from '@api/membership';
+import { getMemberships } from '@/api/membership';
 
-import MembershipRadio, { Membership, PropTypes as MembershipRadioPropTypes } from '@/(pages)/(Subpages)/apply/components/MembershipRadio';
+import MembershipRadio, { Membership, PropTypes as MembershipRadioPropTypes } from '@/apply/components/MembershipRadio';
 
 export interface PropTypes {
   selectedMembership: Membership | undefined;

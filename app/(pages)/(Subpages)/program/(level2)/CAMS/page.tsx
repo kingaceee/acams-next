@@ -40,6 +40,7 @@ export default function CAMS() {
   const listRight = [
     {
       title: "응시자 프로필",
+      desc_type: "bullet",
       desc: [
 				'AML 컴플라이언스',
 				'규제 컴플라이언스',
@@ -52,6 +53,7 @@ export default function CAMS() {
     },
     {
       title: "핵심 주제",
+      desc_type: "bullet",
       desc: [
 				'자금세탁 및 테러자금조달 방식 및 리스크',
 				'자금세탁방지 및 테러자금조달방지 컴플라이언스 기준',
@@ -61,6 +63,7 @@ export default function CAMS() {
     },
     {
       title: "자격증 취득 준비",
+      desc_type: "text",
       desc: "자격 및  경력을 기재하여 신청서를 제출하고 Pearson VUE를 통해 CAMS 시험 일정을 예약하세요",
     },
   ];
