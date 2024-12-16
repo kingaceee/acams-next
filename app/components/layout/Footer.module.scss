@@ -21,8 +21,10 @@
 			}
 		}
 
-		.company {
-			order: 2;
+		@include mobile {
+			.company {
+				order: 2;
+			}
 		}
 
 		.logo {
@@ -197,6 +199,14 @@
 			justify-content: center;
 			margin-top: vw-mo(20);
 			font-size: vw-mo(12);
+		}
+	}
+
+	:global(.show-mo) {
+		display: none;
+
+		@include mobile {
+			display: flex;
 		}
 	}
 }

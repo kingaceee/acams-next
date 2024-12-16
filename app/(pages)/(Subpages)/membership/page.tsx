@@ -10,19 +10,12 @@ export default function Membership() {
 	return (
 		<div className={styles.membership}>
 			<strong className={styles.title}>ACAMS Membership Benefits</strong>
-			<p className={styles.desc}>ACAMS 회원 혜택은 여러분의 학습과 네트워킹, 그리고 경력 발전을 지원하도록 구성되어 있습니다.</p>
+			<p className={styles.desc}>ACAMS 회원 혜택은 <br className="show-mo" />여러분의 학습과 네트워킹, 그리고 <br className="show-mo" />경력 발전을 지원하도록 구성되어 있습니다.</p>
 
 			<div className={styles.benefit}>
 				<ul className={styles.benefit__list}>
 					<li>
-						<Image
-							src="/images/sub/img_sub_benefit01.jpg"
-							width={245}
-							height={180}
-							alt={"benefit01"}
-							aria-hidden={true}
-						/>
-
+						<div className={`${styles.benefit__img} ${styles.img1}`}></div>
 						<p className={styles.benefit__title}>Beast-in-Class<br />Peer Network</p>
 						<div className={styles.benefit__desc}>
 							<p>ACAMS 커뮤니티는 180개 국가와 지역, 공공 및 민간 부문, 그리고 글로벌 금융 시스템과 상호 작용하는 모든 산업에 걸쳐 있습니다.</p>
@@ -30,14 +23,7 @@ export default function Membership() {
 						</div>
 					</li>
 					<li>
-						<Image
-							src="/images/sub/img_sub_benefit02.jpg"
-							width={245}
-							height={180}
-							alt={"benefit02"}
-							aria-hidden={true}
-						/>
-
+						<div className={`${styles.benefit__img} ${styles.img2}`}></div>
 						<p className={styles.benefit__title}>Exclusive<br />Content</p>
 						<div className={styles.benefit__desc}>
 							<p>ACAMS Today는 회원들에 의해, 회원들을 위해 쓰여진 회원 잡지입니다.</p>
@@ -45,28 +31,14 @@ export default function Membership() {
 						</div>
 					</li>
 					<li>
-						<Image
-							src="/images/sub/img_sub_benefit03.jpg"
-							width={245}
-							height={180}
-							alt={"benefit03"}
-							aria-hidden={true}
-						/>
-
+						<div className={`${styles.benefit__img} ${styles.img3}`}></div>
 						<p className={styles.benefit__title}>Stretch Your<br />Budget Further</p>
 						<div className={styles.benefit__desc}>
 							<p>Membership 회원들은 ACAMS와 함께하는 모든 이벤트와 교육 과정에 대해 가격 할인을 받고, 또한 회원들은 인기 많은 이벤트에 대해 우선권을 제공받아 조기할인 티켓을 먼저 신청하실 수 있습니다.</p>
 						</div>
 					</li>
 					<li>
-						<Image
-							src="/images/sub/img_sub_benefit04.jpg"
-							width={245}
-							height={180}
-							alt={"benefit04"}
-							aria-hidden={true}
-						/>
-
+						<div className={`${styles.benefit__img} ${styles.img4}`}></div>
 						<p className={styles.benefit__title}>Continuing<br />Education Credits</p>
 						<div className={styles.benefit__desc}>
 							<p>ACAMS는 인증 또는 재인증을 위해 회원이 획득한 지속적인 교육 크레딧(ACAMS 학점 이라고 함)을 기록하고 있습니다.</p>

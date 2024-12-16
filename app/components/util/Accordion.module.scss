@@ -25,14 +25,27 @@
 		@include font(20,700);
 		cursor: pointer;
 
+		@include mobile {
+			align-items: flex-start;
+			min-height: vw-mo(80);
+			padding: vw-mo(16) 0;
+			font-size: vw-mo(14);
+			line-height: vw-mo(21);
+		}
+
 		&:before {
 			content: 'Q.';
 			@include font(32,800);
+
+			@include mobile {
+				font-size: vw-mo(18);
+			}
 
 		}
 		&:after {
 			content:'';
 			display: block;
+			align-self: center;
 			width: 24px;
 			min-width: 24px;
 			height: 24px;
@@ -42,6 +55,13 @@
 			background-position: 50% 50%;
 			background-repeat: no-repeat;
 			transition: all .3s ease-in-out;
+
+			@include mobile {
+				width: vw-mo(18);
+				min-width: vw-mo(18);
+				height: vw-mo(18);
+				background-size: vw-mo(18);
+			}
 		}
 	}
 
@@ -53,5 +73,10 @@
 		border-top: 1px solid #E8E8E8;
 		background: #FBFBFB;
     transition: all 0.3s ease;
+
+		@include mobile {
+			padding: vw-mo(24 0);
+			font-size: vw-mo(13);
+		}
 	}
 }

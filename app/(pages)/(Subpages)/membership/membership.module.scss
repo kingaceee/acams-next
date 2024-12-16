@@ -7,7 +7,9 @@
 
 	.desc {
 		margin-top: 24px;
+		padding-bottom: 24px;
 		color: #333;
+		border-bottom: 1px solid #ccc;
 	}
 
 	.benefit {
@@ -30,12 +32,70 @@
 			@include font(24,700);
 		}
 
+		&__img {
+			width: 245px;
+			height: 180px;
+
+			@for $i from 1 through 10 {
+				&.img#{$i} {
+					background: url('/images/sub/img_sub_benefit0#{$i}.jpg') no-repeat center center / 100%;
+				}
+			}
+		}
+
 		&__desc {
 			margin-top: 16px;
 			color: #333;
 			font-size: 16px;
 			letter-spacing: -0.02em;
 			line-height: 24px;
+		}
+	}
+
+	@include mobile {
+		.title {
+			display: block;
+			font-size: vw-mo(22);
+			text-align: center;
+		}
+
+		.desc {
+			margin-top: vw-mo(24);
+			font-size: vw-mo(15);
+			text-align: center;
+		}
+
+		.benefit {
+			margin-top: vw-mo(24);
+
+			&__list {
+				flex-direction: column;
+				gap: vw-mo(20);
+
+				li {
+					& + li {
+						margin-top: vw-mo(40);
+						padding-top: vw-mo(60);
+						border-top: 1px solid #ccc;
+					}
+				}
+			}
+
+			&__img {
+				width: 100%;
+				height: vw-mo(180);
+			}
+
+			&__title {
+				margin-top: vw-mo(32);
+				font-size: vw-mo(20);
+			}
+
+			&__desc {
+				margin-top: vw-mo(24);
+				font-size: vw-mo(14);
+				line-height: vw-mo(21);
+			}
 		}
 	}
 }

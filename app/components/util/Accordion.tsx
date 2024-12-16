@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from './Accordion.module.scss'
 
 
@@ -16,6 +16,20 @@ export default function Accordion({ Data, maxRow }: AccordionProps) {
   const handleToggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
 	};
+
+	
+	const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+		
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 	
 	const visibleData = Data.slice(0, maxRow);
 
@@ -26,8 +40,21 @@ export default function Accordion({ Data, maxRow }: AccordionProps) {
 				<p className={styles.accordion__title} onClick={() => handleToggle(index)}>{row.title}</p>
 				<div ref={(el) => {contentRefs.current[index] = el;}} className={styles.accordion__content}
 				style={{
-					height: activeIndex === index ? `${(contentRefs.current[index]?.scrollHeight || 0) + 60}px` : '0px',
-					padding: activeIndex === index ? '30px 50px' : '0 50px',
+					height: activeIndex === index
+										? isMobile
+											? `${(contentRefs.current[index]?.scrollHeight || 0) + 48}px`
+											: `${(contentRefs.current[index]?.scrollHeight || 0) + 60}px`
+										: isMobile
+										? '0'
+										: '0',
+					padding:
+									activeIndex === index
+										? isMobile
+											? '7.5vw 0' // 모바일에서 활성화된 경우
+											: '30px 50px' // 데스크톱에서 활성화된 경우
+										: isMobile
+										? '0' // 모바일에서 비활성화된 경우
+										: '0 50px', // 데스크톱에서 비활성화된 경우
 					overflow: 'hidden',
 					transition: 'all 0.3s ease',
 				}}
