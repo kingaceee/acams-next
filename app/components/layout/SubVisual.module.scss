@@ -14,4 +14,17 @@
 		color: #fff;
 		@include font(60,800);
 	}
+
+	@include mobile {
+		&__visual {
+			height: vw-mo(226);
+			background-position: 40% 20%;
+			background-size: 500%;
+		}
+
+		&__title {
+			padding-top: vw-mo(53);
+			font-size: vw-mo(24);
+		}
+	}
 }

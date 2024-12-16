@@ -9,6 +9,12 @@
 			text-align: center;
 			line-height: 54px;
 
+			@include mobile {
+				height: vw-mo(448);
+				font-size: vw-mo(24);
+				line-height: vw-mo(36);
+			}
+
 			.main {
 				&__inner {
 					z-index: $above;
@@ -16,6 +22,10 @@
 					@include pos-center;
 					width: 100%;
 					padding: 0 0 128px;
+
+					@include mobile {
+						padding-bottom: 0;
+					}
 				}
 
 				&__swiper {
@@ -57,6 +67,13 @@
 				padding-bottom: 0;
 			}
 
+			.logo {
+				width: 214px;
+				height: 36px;
+				margin: 0 auto;
+				background: url('/images/common/ACAMS-logo.svg') no-repeat 0% / 100%;
+			}
+
 			.text {
 				color: $primary;
 				@include font(24,700);
@@ -75,6 +92,28 @@
 				@include font(20,700);
 				background: #222;
 			}
+
+			@include mobile {
+				.main__inner {
+					gap: vw-mo(24);
+				}
+
+				.logo {
+					width: vw-mo(142);
+					height: vw-mo(24);
+				}
+
+				.text {
+					font-size: vw-mo(14);
+					line-height: vw-mo(20);
+				}
+
+				.button {
+					height: vw-mo(44);
+					padding: vw-mo(0 20);
+					font-size: vw-mo(16);
+				}
+			}
 		}
 
 		&.section2 {
@@ -82,9 +121,59 @@
 				display: flex;
 				flex-direction: column;
 				gap: 16px;
+
+				:global {
+					@for $i from 1 through 10 {
+						.card#{$i} {
+							&:before {
+								content: '';
+								display: block;
+								width: 100%;
+								height: 244px;
+								min-height: 244px;
+								background-image: url('/images/main/img_main_card#{$i}.svg?');
+								background-repeat: no-repeat;
+								background-position: 50% 50%;
+								background-size: 230px 180px;
+
+								@include mobile {
+									height: vw-mo(114);
+									min-height: vw-mo(114);
+									background-size: vw-mo(116) vw-mo(90);
+								}
+							}
+						}
+					}
+				}
 				
+				// PC
 				&__row {
 					@include flexCenter(start,16);
+				}
+
+				// MO
+				@include mobile {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: vw-mo(8);
+
+					:global .font16 {
+						font-size: vw-mo(8) !important;
+					}
+				}
+			}
+
+			:global .show-mo {
+				display: none;
+			}
+
+			@include mobile {
+				:global .show-mo {
+					display: grid;
+				}
+
+				.main__inner {
+					padding-top: vw-mo(40);
 				}
 			}
 		}
@@ -106,6 +195,17 @@
 					background-image: url('/images/main/ico_banner02.svg');
 				}
 			}
+
+			@include mobile {
+				.main__inner {
+					padding: vw-mo(80 20);
+				}
+
+				.banner {
+					flex-direction: column;
+					gap: vw-mo(80);
+				}
+			}
 		}
 
 		&.section4 {
@@ -113,9 +213,30 @@
 			text-align: center;
 			background: $primary2;
 
+			.logo {
+				width: 268px;
+				height: 50px;
+				margin: 0 auto;
+				background: url('/images/common/logo.svg') no-repeat 0% / 100%;
+			}
+
 			.text {
 				margin-top: 24px;
 				line-height: 36px;
+			}
+
+			@include mobile {
+				font-size: vw-mo(15);
+
+				.logo {
+					width: vw-mo(210);
+					height: vw-mo(40);
+				}
+
+				.text {
+					margin-top: vw-mo(24);
+					line-height: vw-mo(22);
+				}
 			}
 		}
 
@@ -132,12 +253,24 @@
 					color: #bbb;
 					@include font(20,800);
 				}
+
+				@include mobile {
+					width: 100%;
+					min-width: 100%;
+					font-size: vw-mo(24);
+					text-align: center;
+				}
 			}
 
 			
 			.faq__inner {
 				display: flex;
 				align-items: center;
+
+				@include mobile {
+					flex-direction: column;
+					gap: vw-mo(28);
+				}
 			}
 		}
 	}
@@ -145,5 +278,9 @@
 	&__inner {
 		height: 100%;
 		padding: 80px 0;
+
+		@include mobile {
+			padding: vw-mo(80 16);
+		}
 	}
 }

@@ -1,0 +1,112 @@
+
+.bullet {
+	position: relative;
+	width: 100%;
+	padding-left: 14px;
+	white-space: pre-line;
+
+	@include mobile {
+		padding-left: vw-mo(10);
+	}
+
+	&:before {
+		position: absolute;
+		left: 0;
+	}
+
+	& + .bullet {
+		margin-top: 4px;
+	}
+
+	&:has(.dep2) ~ .bullet {
+		margin-top: 10px;
+	}
+
+	.dep2 {
+		margin-top: 6px;
+	}
+
+	a {
+		display: inline;
+	}
+
+	&__desc {
+		margin-top: 4px;
+	}
+
+	&--dash {
+		>.bullet {
+			&:before {
+				content: '-';
+				color: inherit;
+			}
+		}
+	}
+
+	&--num {
+		>.bullet {
+			padding-left: 20px;
+
+			@include mobile {
+				padding-left: vw-mo(14);
+			}
+			span {
+				position: absolute;
+				left: 0;
+				
+				&:after {
+					content: ')';
+				}
+			}
+		}
+	}
+
+	&--roundnum {
+		>.bullet {
+			padding-left: 22px;
+
+			span {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				top: 3px;
+				left: 0;
+				width: 18px;
+				min-width: 18px;
+				height: 18px;
+				min-height: 18px;
+				padding: 1px 1px 0 0;
+				font-size: 14px;
+				border-radius: 50%;
+				border: 1px solid #000;
+
+				&:after {
+					display: none;
+				}
+			}
+
+			@include mobile {
+				padding-left: vw-mo(18);
+
+				span {
+					top: 1px;
+					width: vw-mo(14);
+					min-width: vw-mo(14);
+					height: vw-mo(14);
+					min-height: vw-mo(14);
+					padding: 2px 0 0;
+					font-size: vw-mo(10);
+				}
+			}
+		}
+	}
+
+	&--dot {
+		>.bullet {
+			&:before {
+				content: 'ㆍ';
+			}
+		}
+	}
+}

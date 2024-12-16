@@ -1,25 +1,30 @@
+import styles from './Select.module.scss';
 
-import styles from './Select.module.scss'
+import { SelectHTMLAttributes } from 'react';
+import cs from 'clsx';
 
-interface Options {
-	value?: string | string[];
-	label?: string | string[];
+export interface Option {
+  value: string;
+  label: string;
 }
 
-interface SelectProps {
-	id?: string;
-	name?: string;
-	placeholder?: string;
-  options: Options[];
+export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  placeholder?: string;
+  options: Option[];
+  selected?: Option['value'];
 }
 
-export default function Select({id, name, placeholder, options}: SelectProps) {
-	return (
-		<select id={id} name={name} className={styles.select}>
-			<option disabled selected>{placeholder}</option>
+export default function Select({ placeholder, options, selected, ...selectProps }: SelectProps) {
+  return (
+    <select {...selectProps} defaultValue='no' value={selected} className={cs(styles.select, selectProps.className)}>
+      <option disabled value='no'>
+        {placeholder}
+      </option>
       {options.map((option, index) => (
-			<option key={index} value={option.value}>{option.label}</option>
+        <option key={index} value={option.value}>
+          {option.label}
+        </option>
       ))}
-		</select>
-	);
+    </select>
+  );
 }

@@ -3,6 +3,10 @@
 		@include flexCenter(center);
 		gap: 40px;
 
+		@include mobile {
+			gap: vw-mo(8);
+		}
+
 		&.link {
 			a {
 				display: flex;
@@ -20,6 +24,12 @@
 					display: block;
 					margin-top: 4px;
 					font-size: 16px;
+				}
+
+				@include mobile {
+					min-height: vw-mo(44);
+					padding: vw-mo(10 8);
+					font-size: vw-mo(16);
 				}
 			}
 		}
@@ -59,6 +69,11 @@
 			a {
 				color: #fff;
 			}
+		}
+		
+
+		@include mobile {
+			border-radius: vw-mo(8);
 		}
 	}
 }

@@ -1,5 +1,9 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import styles from './SubLayout.module.scss';
 import Image from 'next/image';
+import Bullet from '@/app/components/util/Bullet';
 
 interface PriceInfo  {
 	type: string;
@@ -31,13 +35,29 @@ interface SubLayoutProps {
 }
 
 export default function SubTab({ type, url, alt, title, tit_desc, desc, desc_left, desc_right, price_type, test_info, price_info, price }: SubLayoutProps) {
+	const [width, setWidth] = useState(135);
+	const [height, setHeight] = useState(135);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      const isMobile = window.innerWidth < 768;
+      setWidth(isMobile ? 130 : 135);
+      setHeight(isMobile ? 130 : 150);
+    };
+
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+
+    return () => window.removeEventListener('resize', updateWidth);
+	}, []);
+	
   return (
 		<div className={`${styles.sub__content} ${type ? styles[type] : ''}`}>
 			<div className={styles.sub__title}>
 				<strong className={styles.title}>{title}
 					{tit_desc && <span className={styles.desc}>{tit_desc}</span>}
 				</strong>
-				<Image src={url} width={135} height={150} alt={alt} />
+				<Image src={url} width={width} height={height} alt={alt} />
 			</div>
 		
 			<div className={styles.sub__desc}>{desc}</div>
@@ -52,31 +72,36 @@ export default function SubTab({ type, url, alt, title, tit_desc, desc, desc_lef
 						<div className={styles.desc}>{list_left.desc}</div>
 						)}
 						{list_left.desc_type === 'bullet' && (
-						<ul className={`${styles.desc} bullet--dash`}>
-							{Array.isArray(list_left.desc)
-							? list_left.desc.map((item, idx) => (
-								<li key={idx} className={`${styles.bullet} bullet`}>{item}</li>
-							))
-							: <li className={`${styles.bullet} bullet`}>{list_left.desc}</li>}
-						</ul>
+						<Bullet
+							type="dash"
+							bullet={Array.isArray(list_left.desc) 
+								? list_left.desc.map((text) => ({ text })) 
+								: [{ text: list_left.desc }]
+							}
+						/>
 						)}
 					</div>
 					))}
 				</div>
 		
 				<div className={`${styles.desc__item} ${styles.right}`}>
-				{desc_right.map((list_right, index) => (
-				<div key={index} className={styles.desc__box}>
-					<p className={styles.title}>{list_right.title}</p>
-					<ul className={`${styles.desc} bullet--dash`}>
-						{Array.isArray(list_right.desc)
-						? list_right.desc.map((item, idx) => (
-							<li key={idx} className={`${styles.bullet} bullet`}>{item}</li>
-						))
-						: <li className={`${styles.bullet} bullet`}>{list_right.desc}</li>}
-					</ul>
-				</div>
-				))}
+					{desc_right.map((list_right, index) => (
+					<div key={index} className={styles.desc__box}>
+						<p className={styles.title}>{list_right.title}</p>
+						{list_right.desc_type === 'text' && (
+						<div className={styles.desc}>{list_right.desc}</div>
+						)}
+						{list_right.desc_type === 'bullet' && (
+						<Bullet
+							type="dash"
+							bullet={Array.isArray(list_right.desc)
+								? list_right.desc.map((text) => ({ text }))
+								: [{ text: list_right.desc }]
+							}
+						/>
+						)}
+					</div>
+					))}
 				</div>
 			</div>
 

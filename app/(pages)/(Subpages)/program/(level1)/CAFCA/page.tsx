@@ -28,6 +28,7 @@ export default function CAFCA() {
   const listRight = [
     {
       title: "프로그램의 대상",
+      desc_type: "text",
       desc: [
         "AML 업무를 겸임하는 직원이 있는 소형스타트업",
         "보다 구조화된 AML 프로그램으로 전환 중인 중형 핀테크",
@@ -36,6 +37,7 @@ export default function CAFCA() {
     },
     {
       title: "CKYCA에 적합한 대상",
+      desc_type: "bullet",
       desc: [
         "급성장기를 경험 중이거나 이를 준비 중인 모든 핀테크‒ 결제 서비스 제공업체(PSP)",
         "선불 카드를 포함한 전자 화폐 제공업체 및 디지털 지갑",
@@ -59,7 +61,7 @@ export default function CAFCA() {
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level1"
-        url="/images/main/img_main_card01.svg"
+        url="/images/main/img_main_card1.svg"
         alt="CAFCA"
         title="AML FINTECH COMPLIANCE ASSOCIATE"
         desc="테크는 변화를 빠르게 만들고, 빠른 성장을 가능하게 합니다. 핀테크사의 지속적인 성장을 위해 금융 범죄 위험을 이해하고 완화하는 것이 필수적입니다. 투자자, 고객, 글로벌 규제 당국 및 뱅킹 서비스를 제공하는 금융 기관은 모두 핀테크가 위험 관리 계획을 수립하고 적절하게 훈련된 업무인력을 갖추고 있을것을 기대합니다. 이 새로운 Associate 레벨 자격증은 개인이 고유한 상황에 맞게 설계된 금융 범죄 예방에 대한 준비가 되어 있음을 입증하고, 조직이 그에 대한 증거를 제공할 수 있도록 지원합니다."

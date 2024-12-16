@@ -88,7 +88,7 @@ export default function CAMS_RM() {
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level3"
-        url="/images/main/img_main_card08.svg"
+        url="/images/main/img_main_card8.svg"
         alt="CAMS RM"
 				title="RISK MANAGEMENT"
         desc=""

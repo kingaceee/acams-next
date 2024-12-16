@@ -1,0 +1,9 @@
+.check {
+  &__list {
+    margin-top: 16px;
+
+    li + li {
+      margin-top: 8px;
+    }
+  }
+}

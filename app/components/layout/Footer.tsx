@@ -19,9 +19,7 @@ export default function Footer() {
 			<div className={styles.footer__top}>
 				<div className={styles.footer__inner}>
 					<div className={styles.company}>
-						<div className={styles.logo}>
-							<Image src="/images/common/logo-white.svg" width={193} height={36} alt='Finger AML Hub logo' />
-						</div>
+						<div className={styles.logo}></div>
 						<div className={styles.info}>
 							<ul className={styles.info__row}>
 							{
@@ -46,6 +44,10 @@ export default function Footer() {
 							}
 							</ul>
 						</div>
+						<ul className={`${styles.terms} show-mo`}>
+							<li><Link href="/terms">이용약관</Link></li>
+							<li><Link href="/privacy">개인정보처리방침</Link></li>
+						</ul>
 					</div>
 				
 					<div className={styles.inquiry}>
@@ -64,7 +66,7 @@ export default function Footer() {
 			<div className={styles.footer__bottom}>
 				<div className={styles.footer__inner}>
 					<div className={styles.copy}>Copyright © 2024 Finger INC.All Rights Reserved.</div>
-					<ul className={styles.info}>
+					<ul className={`${styles.terms} show-pc`}>
 						<li><Link href="/terms">이용약관</Link></li>
 						<li><Link href="/privacy">개인정보처리방침</Link></li>
 					</ul>

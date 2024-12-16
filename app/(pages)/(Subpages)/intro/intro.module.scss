@@ -5,7 +5,23 @@
 	}
 
 	&__sign {
+		width: 268px;
+		height: 50px;
 		margin-top: 40px;
+		margin-left: auto;
 		text-align: right;
+		background: url('/images/common/logo.svg') no-repeat 0% / 100%;
+	}
+
+	@include mobile {
+		&__container {
+			line-height: vw-mo(20);
+		}
+
+		&__sign {
+			width: vw-mo(129);
+			height: vw-mo(24);
+			margin-top: vw-mo(20);
+		}
 	}
 }

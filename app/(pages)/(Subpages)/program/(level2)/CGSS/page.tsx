@@ -104,7 +104,7 @@ export default function CAMS() {
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level2"
-        url="/images/main/img_main_card05.svg"
+        url="/images/main/img_main_card5.svg"
         alt="CAMS"
         title="CERTIFIED GLOBAL SANCTIONS SPECIALIST"
         desc=""

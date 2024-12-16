@@ -9,6 +9,26 @@
 	background-color: rgba($color: $primary, $alpha: .8);
 	transition: all 0.5s ease-out;
 
+	.logo {
+		width: 172px;
+		height: 32px;
+		background: url('/images/common/logo-white.svg') no-repeat center center / 100%;
+
+		a {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	@include mobile {
+		height: vw-mo(54);
+		padding: vw-mo(0 8 0 20);
+
+		.logo {
+			width: vw-mo(129);
+			height: vw-mo(24);
+		}
+	}
+
 	&:after {
 		content: '';
 		display: block;
@@ -20,7 +40,6 @@
 		background: 
     linear-gradient(to left, rgba(204, 204, 204, .8), rgba(204, 204, 204, .8)),
     linear-gradient(to left, $primary, $primary);
-    // linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
 		background-size: 100% 0.1em, 0 0.1em;
 		background-position: 100% 100%, 0 100%;
 		background-repeat: no-repeat;
@@ -106,6 +125,45 @@
 
 			& + li {
 				border-top: 1px solid #ccc;
+			}
+		}
+	}
+
+	@include mobile {
+		position: fixed;
+		top: vw-mo(54);
+		left: 0;
+		width: 100%;
+		height: fit-content;
+		background: #fff;
+
+		display: none !important;
+
+		&.isOpen {
+			display: block !important;
+		}
+
+		&__btn {
+			width: vw-mo(48);
+			height: vw-mo(48);
+			background: $hamburger no-repeat center center / vw-mo(48);
+		}
+
+		&__mobile {
+
+			li {
+				@include flexCenter(center);
+				height: vw-mo(52);
+				border-bottom: 1px solid #ccc;
+
+				a {
+					@include flexCenter(center);
+					width: 100%;
+					height: 100%;
+					color: #333;
+					font-size: vw-mo(14);
+					font-weight: 700;
+				}
 			}
 		}
 	}

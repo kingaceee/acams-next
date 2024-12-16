@@ -1,6 +1,10 @@
 .sub {
 	&__content {
 		margin-top: 50px;
+
+		@include mobile {
+			margin-top: vw-mo(20);
+		}
 	}
 
 	&__title {
@@ -19,6 +23,19 @@
 				margin-top: 8px;
 				font-family: "NanumSquare";
 				@include font(14,700);
+			}
+		}
+
+		@include mobile {
+			flex-direction: column;
+			justify-content: center;
+			gap: vw-mo(16);
+			padding: vw-mo(30 20);
+			font-size: vw-mo(20);
+
+			.title {
+				padding: vw-mo(0 40);
+				text-align: center;
 			}
 		}
 
@@ -59,6 +76,12 @@
 	&__desc {
 		margin: 32px 0;
 		padding: 0 30px;
+		line-height: 27px;
+
+		@include mobile {
+			margin: vw-mo(32 0);
+			padding: 0;
+		}
 	}
 
 	&__price {
@@ -160,6 +183,11 @@
 	&__list {
 		display: flex;
 		gap: 70px;
+
+		@include mobile {
+			flex-direction: column;
+			gap: vw-mo(32);
+		}
 	}
 
 	&__item {
@@ -183,8 +211,28 @@
 
 			.desc {
 				padding: 16px 30px;
+				font-size: 18px;
 				letter-spacing: -0.02em;
-				line-height: 24px;
+				line-height: 27px;
+			}
+			
+
+			@include mobile {
+				.title {
+					gap: vw-mo(8);
+					padding: vw-mo(8 0);
+					font-size: vw-mo(16);
+
+					&:before {
+						width: vw-mo(20);
+						height: vw-mo(20);
+					}
+				}
+
+				.desc {
+					padding: vw-mo(16) 0 0;
+					line-height: vw-mo(20);
+				}
 			}
 		}
 		&.right {
@@ -192,12 +240,12 @@
 			min-width: 280px;
 
 			.title {
+				margin-bottom: 8px;
 				color: #002368;
 				@include font(18,800);
 			}
 
 			.desc {
-				margin-top: 8px;
 				font-size: 14px;
 
 				.bullet {
@@ -211,13 +259,24 @@
 					}
 				}
 			}
+			
+
+			@include mobile {
+				width: 100%;
+				min-width: auto;
+			}
 		}
-		
 	}
 
 	&__box {
+		font-size: 14px;
+
 		& + .desc__box {
 			margin-top: 32px;
+
+			@include mobile {
+				margin-top: vw-mo(32);
+			}
 		}
 	}
 }

@@ -41,7 +41,7 @@ export default function FormGroup({id, title, formRow, }: SelectProps) {
 						<InputBox
 							id={row.inputBox.id}
 							for={row.inputBox.for}
-							button={row.inputBox.btnLabel}
+							buttonText={row.inputBox.btnLabel}
 							timer={row.inputBox.timer}
 						/>
 						)}

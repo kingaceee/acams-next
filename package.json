@@ -3,26 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "axios": "^1.7.9",
+    "clsx": "^2.1.1",
+    "lodash": "^4.17.21",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "swiper": "^11.1.14"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.13",
+    "@gsap/react": "^2.1.1",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "eslint": "^8.57.1",
     "eslint-config-next": "15.0.3",
     "gsap": "^3.12.5",
-    "sass": "^1.80.7",
-    "sass-loader": "^16.0.3",
+    "sass": "^1.82.0",
+    "sass-loader": "^16.0.4",
     "typescript": "^5",
     "typescript-plugin-css-modules": "^5.1.0"
   }

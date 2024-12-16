@@ -85,7 +85,7 @@ export default function CAMS() {
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level3"
-        url="/images/main/img_main_card09.svg"
+        url="/images/main/img_main_card9.svg"
         alt="CAMS AUDIT"
 				title="ADCANCED CAMS AUDIT"
 				tit_desc="이전 직접 참여가 필요한 과정이었던 CAMS-Audit은 이제 시험 기반 프로그램이 되었습니다."

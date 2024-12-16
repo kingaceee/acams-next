@@ -11,18 +11,41 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-end;
+
+			@include mobile {
+				flex-direction: column;
+				align-items: center;
+				gap: vw-mo(40);
+				padding: vw-mo(40 20);
+				text-align: center;
+			}
 		}
+
+		.company {
+			order: 2;
+		}
+
 		.logo {
+			display: inline-block;
+			width: 193px;
+			height: 36px;
+			background: url('/images/common/logo-white.svg') no-repeat 0% / 100%;
 			opacity: .5;
+
+			@include mobile {
+				width: vw-mo(130);
+				height: vw-mo(24);
+			}
 		}
 
 		.info {
-			max-width: 510px;
 			margin-top: 32px;
 
 			&__row {
 				display: flex;
+				align-items: center;
 				flex-wrap: wrap;
+				gap: 10px;
 
 				& + .info__row {
 					margin-top: 10px;
@@ -30,13 +53,53 @@
 			}
 
 			li {
+				display: flex;
+				align-items: center;
+				gap: 10px;
 				color: #EFEFEF;
 				font-size: 14px;
 
 				& + li {
-					margin-left: 10px;
-					padding-left: 10px;
-					border-left: 1px solid #EFEFEF;
+					&:before {
+						content: '';
+						display: block;
+						width: 1px;
+						height: 14px;
+						background: #EFEFEF;
+					}
+				}
+			}
+
+			@include mobile {
+				margin-top: vw-mo(20);
+
+				&__row {
+					justify-content: center;
+					gap: vw-mo(0 10);
+					margin: 0;
+
+					&:first-child {
+						li:nth-child(2) {
+							&:before {
+								display: block;
+								height: vw-mo(12);
+								background: #778296;
+							}
+						}
+					}
+				}
+				
+				li {
+					gap: vw-mo(8);
+					color: #778296;
+					font-size: vw-mo(11);
+					line-height: vw-mo(16);
+
+					& + li {
+						&:before {
+							display: none;
+						}
+					}
 				}
 			}
 		}
@@ -57,6 +120,22 @@
 					@include font(18,800);
 				}
 			}
+
+			@include mobile {
+				flex-direction: column;
+				gap: vw-mo(12);
+				width: 100%;
+
+				&__box {
+					width: 100%;
+					padding: vw-mo(16 20);
+					font-size: vw-mo(12);
+
+					.mail {
+						font-size: vw-mo(13);
+					}
+				}
+			}
 		}
 	}
 
@@ -67,38 +146,57 @@
 			@include flexCenter(space-between);
 			height: 60px;
 			padding: 0;
+
+			@include mobile {
+				justify-content: center;
+				height: vw-mo(40);
+			}
 		}
 
 		.copy {
 			color: #ccc;
 			@include font(14,700);
+
+			@include mobile {
+				font-size: vw-mo(10);
+			}
+		}
+	}
+
+	.terms {
+		@include flexCenter(flex-end);
+		color: #EFEFEF;
+		@include font(14,700);
+
+		@include mobile {
+			font-size: vw-mo(10);
 		}
 
-		.info {
-			@include flexCenter(flex-end);
-			color: #EFEFEF;
-			@include font(14,700);
+		li {
+			& + li {
+				position: relative;
+				margin-left: 20px;
+				padding-left: 20px;
 
-			li {
-				& + li {
-					position: relative;
-					margin-left: 20px;
-					padding-left: 20px;
-
-					&:before {
-						content: '';
-						display: block;
-						@include pos-centerYL(0);
-						width: 1px;
-						height: 12px;
-						background: #fff;
-					}
-				}
-
-				a {
-					color: #EFEFEF;
+				&:before {
+					content: '';
+					display: block;
+					@include pos-centerYL(0);
+					width: 1px;
+					height: 12px;
+					background: #fff;
 				}
 			}
+
+			a {
+				color: #EFEFEF;
+			}
+		}
+
+		@include mobile {
+			justify-content: center;
+			margin-top: vw-mo(20);
+			font-size: vw-mo(12);
 		}
 	}
 }

@@ -27,7 +27,7 @@
 				width: 24px;
 				min-width: 24px;
 				height: 24px;
-				background: $arrDoubleRight no-repeat center 100%;
+				background: $arrDoubleRight no-repeat 50% 50% / 100%;
 			}
 		}
 		a {
@@ -39,9 +39,34 @@
 		}
 
 		&.home {
-			width: 17px;
-			height: 14px;
-			background-image: $home;
+			width: 28px;
+			height: 28px;
+			background: $home no-repeat 50% 50% / 100%;
+		}
+	}
+
+	@include mobile {
+		height: vw-mo(40);
+
+		&__inner {
+			padding: vw-mo(0 16);
+		}
+	
+		&__depth {
+			gap: vw-mo(8);
+	
+			& + .breadcrumb__depth {
+				&:before {
+					width: vw-mo(20);
+					min-width: vw-mo(20);
+					height: vw-mo(20);
+				}
+			}
+
+			&.home {
+				width: vw-mo(20);
+				height: vw-mo(20);
+			}
 		}
 	}
 }

@@ -1,24 +1,19 @@
+import styles from './Checkbox.module.scss';
 
-import Link from 'next/link';
-import styles from './Checkbox.module.scss'
+import { InputHTMLAttributes } from 'react';
 
-interface CheckboxProps {
-	id?: string;
-	for?: string;
-	value?: string | number;
-	name?: string;
-	link?: string;
-	label?: string;
+export interface PropTypes extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  link?: string;
+  label?: string;
 }
 
-export default function Checkbox(chkbox: CheckboxProps) {
-	return (
-		<div className={styles.chkbox__btn}>
-			<input type="checkbox" id={chkbox.id} value={chkbox.value} name={chkbox.name} />
-			<label htmlFor={chkbox.for}>
-				<a>{chkbox.link}</a>
-				{chkbox.label}
-			</label>
-		</div>
-	);
+export default function Checkbox({ link, label, ...inputProps }: PropTypes) {
+  return (
+    <div className={styles.chkbox__btn}>
+      <input {...inputProps} type='checkbox' />
+      <label htmlFor={inputProps.id}>
+        <a>{link}</a> {label}
+      </label>
+    </div>
+  );
 }

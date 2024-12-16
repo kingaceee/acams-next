@@ -23,16 +23,20 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
 	}, []);
+
+	const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen((prevState) => !prevState);
+	};
 	
 	return (
 		<header className={`${styles.header} ${isScrolled ? styles.scroll : ''}`}>
 			<div className={`${styles.header__inner} full`}>
 				<h1 className={styles.logo}>
-					<Link href="/">
-						<Image src="/images/common/logo-white.svg" width={172} height={32} alt='ACAMS logo'/>
-					</Link>
+					<Link href="/"></Link>
 				</h1>
-				<nav className={styles.gnb}>
+				<nav className={`${styles.gnb} show-pc`}>
 					<ul className={styles.gnb__depth1}>
 						<li>
 							<Link href="/intro">소개</Link>
@@ -68,8 +72,40 @@ export default function Header() {
 						</li>
 					</ul>
 				</nav>
+
+				<button className={`${styles.gnb__btn} show-mo`} onClick={toggleMenu}><span className="blind">menu 열기</span></button>
+				<nav className={`${styles.gnb} show-mo ${isOpen ? styles.isOpen : ''}`}>
+					<ul className={styles.gnb__mobile}>
+						<li>
+							<Image src="/images/common/ACAMS-logo-sm.svg" width={20} height={20} alt='ACAMS logo' />
+						</li>
+						<li>
+							<Link href="/intro">소개</Link>
+						</li>
+						<li>
+							<Link href='/about'>About ACAMS</Link>
+						</li>
+						<li>
+							<Link href='/program/CKYCA'>초급 자격증</Link>
+						</li>
+						<li>
+							<Link href='/program/CAMS'>중급 자격증</Link>
+						</li>
+						<li>
+							<Link href='/program/CAMS-Audit'>고급 자격증</Link>
+						</li>
+						<li>
+							<Link href='/membership'>멤버십</Link>
+						</li>
+						<li>
+							<Link href='/apply'>프로그램 신청</Link>
+						</li>
+						<li>
+							<Link href="/faq">FAQ</Link>
+						</li>
+					</ul>
+				</nav>
 			</div>
 		</header>
 	);
 }
-

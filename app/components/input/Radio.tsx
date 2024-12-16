@@ -1,25 +1,18 @@
+import styles from './Radio.module.scss';
 
-import styles from './Radio.module.scss'
+import { InputHTMLAttributes } from 'react';
+import cs from 'clsx';
 
-interface RadioProps {
-	id?: string;
-	for?: string;
-	value?: string | number;
-	name?: string;
-	label?: string;
-	hidden?: boolean;
+export interface PropTypes extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  label: string;
+  hidden?: boolean;
 }
 
-export default function Radio(radio: RadioProps) {
-	return (
-		<div className={`${styles.radio__btn} ${radio.hidden ? 'hidden' : ''}`}>
-			<input
-				type="radio"
-				id={radio.id}
-				value={radio.value}
-				name={radio.name}
-			/>
-			<label htmlFor={radio.for}>{radio.label}</label>
-		</div>
-	);
+export default function Radio({ label, hidden, ...radioProps }: PropTypes) {
+  return (
+    <div className={cs(styles.radio__btn, { [styles.hidden]: hidden })}>
+      <input {...radioProps} type='radio' />
+      <label htmlFor={radioProps.id}>{label}</label>
+    </div>
+  );
 }

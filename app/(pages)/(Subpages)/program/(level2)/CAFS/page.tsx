@@ -70,7 +70,7 @@ export default function CAMS() {
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level2"
-        url="/images/main/img_main_card07.svg"
+        url="/images/main/img_main_card7.svg"
         alt="CAFS"
         title="CERTIFIED ANTI-FRAUD SPECIALIST"
         desc="가상자산 AML 전문가 경력을 준비하세요."

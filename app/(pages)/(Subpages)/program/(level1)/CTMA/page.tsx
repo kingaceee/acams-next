@@ -73,7 +73,7 @@ export default function CTMA() {
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level1"
-        url="/images/main/img_main_card03.svg"
+        url="/images/main/img_main_card3.svg"
         alt="CTMA"
         title="TRANSACTION MONITORING ASSOCIATE"
         desc="의심스러운 활동에 대한 거래 모니터링은 AML 컴플라이언스 프로그램의 필수 기능입니다. 회사에 자동화된 시스템을 이미 구현한 경우에도 퀄리티있는 거래 모니터링을 위해서는 담당자가 얼마나 조사를 잘 수행하는지에 많이 좌지우지 됩니다. 이 ACAMS 자격증은 거래 모니터링 담당자에 필요한 지식과 기술에 대한 새로운 글로벌 기준을 수립하고, 조직이 해당 직원들을 적절하게 교육하고 정식 자격증 시험을 통해 직원들의 지식을 입증하게 함으로써 금융 범죄 위기를 예방할 수 있도록 지원합니다."

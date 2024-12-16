@@ -99,7 +99,7 @@ export default function CAMS() {
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level2"
-        url="/images/main/img_main_card04.svg"
+        url="/images/main/img_main_card4.svg"
         alt="CAMS"
         title="CERTIFIED ANTI-MONEY LAUNDERING SPECIALIST"
         desc="CAMS는 전 세계 기관, 정부 및 규제 기관으로부터 AML 자격증의 골드 스탠다드로 인정받고 있습니다."

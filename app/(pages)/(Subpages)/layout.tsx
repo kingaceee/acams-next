@@ -1,6 +1,6 @@
 
-import SubVisual from "@/app/components/layout/SubVisual";
-import Breadcrumb from "@/app/components/layout/Breadcrumb";
+import SubVisual from "@/components/layout/SubVisual";
+import Breadcrumb from "@/components/layout/Breadcrumb";
 
 export default function Layout({ children, title }: { children: React.ReactNode; title: string;}) {
   return (

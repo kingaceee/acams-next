@@ -8,6 +8,11 @@
 	@include font(160,800);
 	line-height: 1;
 
+	@include mobile {
+		bottom: vw-mo(-4);
+		font-size: vw-mo(30);
+	}
+
 	span {
 		display: inline-block;
 		transform-origin: bottom;
@@ -22,6 +27,9 @@
 
 		&.space {
 			margin-left: 80px;
+			@include mobile {
+				margin-left: vw-mo(20);
+			}
 		}
 	}
 }

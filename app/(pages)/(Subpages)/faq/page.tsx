@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import styles from "./faq.module.scss";
 import SubTab from "../program/component/SubTab";
-import Accordion from "@/app/components/util/Accordion";
+import Accordion from "@/components/util/Accordion";
 
 export const metadata: Metadata = {
   title: "FAQ"

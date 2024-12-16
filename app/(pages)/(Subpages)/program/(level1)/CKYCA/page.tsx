@@ -29,12 +29,14 @@ export default function CKYCA() {
   const listRight = [
     {
       title: "프로그램의 대상",
+      desc_type: "text",
       desc: [
         "CKYCA는 KYC/CDD 업무를 미래에 희망하거나 현재 이 업무를 담당하고 있는 초기 경력 전문가와 이들을 감독하는 담당자를 위한 자격증입니다. 6~12개월의 경험을 쌓은 CKYCA 전문가는 최소한의 감독만으로 EDD를 수행하고, 고위험 사례의 적절한 상부보고가 이루어질 수 있어야 합니다.",
       ],
     },
     {
       title: "CKYCA에 적합한 대상",
+      desc_type: "bullet",
       desc: [
         "KYC 애널리스트",
         "KYC/CDD 애너리스트",
@@ -58,7 +60,7 @@ export default function CKYCA() {
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level1"
-        url="/images/main/img_main_card02.svg"
+        url="/images/main/img_main_card2.svg"
         alt="CKYCA"
         title="KNOW UOUR CUSTOMER ASSOCIATE"
         desc="효과적인 KYC/CDD는 금융 범죄를 예방하기 위해 필수적이며, 새로운 ACAMS 자격증인 CKYCA(Certified Know Your Customer Associate)는 해당 분야의 전문가를 위한 새로운 글로벌 기준을 제공합니다. CKYCA는 금융 기관을 보호하는 데 중요한 역할을 하는 프론트 라인팀과 운영 팀을 위해 개발된 ACAMS의 첫 번째 자격증입니다."
