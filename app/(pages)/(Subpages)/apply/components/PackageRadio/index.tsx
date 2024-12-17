@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import Radio, { PropTypes as RadioPropTypes } from '@/components/input/Radio';
 
 const PACKAGE = [
@@ -18,12 +16,6 @@ function PackageRadio({ selectedPackage, onChange }: PropTypes) {
 
     onChange(selectedId);
   };
-
-  useEffect(() => {
-    if (selectedPackage === undefined || !PACKAGE.map(item => item.id).includes(selectedPackage)) {
-      onChange(PACKAGE[0].id);
-    }
-  }, [onChange, selectedPackage]);
 
   return (
     <div className='radio__box'>

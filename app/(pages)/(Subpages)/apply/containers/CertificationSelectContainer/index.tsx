@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { getCerifications } from '@/api/certification';
+import { getCertifications } from '@/api/certification';
 
 import CertificationSelect, { PropTypes as CertificationSelectPropTypes } from '@/apply/components/CertificationSelect';
 
@@ -15,7 +15,7 @@ function CertificationSelectContainer(props: PropTypes) {
   const [certifications, setCertifications] = useState<CertificationSelectPropTypes['list']>([]);
 
   const callGetCertifications = async () => {
-    const response = await getCerifications();
+    const response = await getCertifications();
 
     const parsedResult = response.map(item => ({
       id: item.id,

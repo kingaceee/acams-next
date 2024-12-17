@@ -1,14 +1,14 @@
-import { createRequest, CreateRequestOptions, RequestFunction } from './instance';
+import { createRequest, RequestFunction } from './instance';
 
 export interface SendCodeByEmailArgs {
   email: string;
 }
 
-export const sendCodeByEmail: RequestFunction<SendCodeByEmailArgs, boolean> = body => {
+export const sendCodeByEmail: RequestFunction<SendCodeByEmailArgs, boolean> = ({ email }) => {
   return createRequest({
     method: 'POST',
     endpoint: '/verification/email',
-    body: { ...body },
+    body: { target: email },
   });
 };
 
@@ -17,10 +17,10 @@ export interface VerifyCodeArgs {
   code: string;
 }
 
-export const verifyCode: RequestFunction<VerifyCodeArgs, boolean> = body => {
+export const verifyCode: RequestFunction<VerifyCodeArgs, boolean> = ({ code, email }) => {
   return createRequest({
     method: 'POST',
     endpoint: '/verification',
-    body: { ...body },
+    body: { target: email, code: code },
   });
 };

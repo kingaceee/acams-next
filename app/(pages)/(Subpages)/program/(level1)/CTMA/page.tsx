@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SubTab from "../../component/SubTab";
 import SubLayout from "../../component/SubLayout";
+import Subpage from "@/(pages)/(Subpages)/Subpage";
 
 export const metadata: Metadata = {
   title: "CTMA",
@@ -71,7 +72,7 @@ export default function CTMA() {
   ];
 
   return (
-    <>
+    <Subpage title="초급 자격증">
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level1"
@@ -85,6 +86,6 @@ export default function CTMA() {
         test_info={testInfo}
         price="1,045"
       />
-    </>
+    </Subpage>
   );
 }

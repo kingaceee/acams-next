@@ -17,7 +17,7 @@ interface BulletProps {
   children?: React.ReactNode;
 }
 
-export default function Bullet({ type, bullet = [], children }: BulletProps) {
+export default function Bullet({ type, bullet = [] }: BulletProps) {
   const bulletClass = type ? styles[`bullet--${type}`] : '';
 
   return (

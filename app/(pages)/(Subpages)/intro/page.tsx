@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import styles from "./intro.module.scss";
-import Image from "next/image";
+import Subpage from "../Subpage";
 
 export const metadata: Metadata = {
-  title: "소개"
+	title: "소개"
 };
 
 export default function Intro() {
 	return (
-		<>
+		<Subpage title="About  Finger AML Hub">
 			<div className={styles.intro__container}>
 				<p className="font-bold">핑거 AML Hub에 오신 것을 환영합니다.</p><br/>
 				<p>핑거는 자금세탁방지(AML)와 금융범죄 예방(AFC)의 중요성을 깊이 인식하고 이 분야의 비즈니스를 본격적으로 확장하고 있습니다.</p><br className="show-mo"/>
@@ -21,6 +21,6 @@ export default function Intro() {
 
 				<div className={styles.intro__sign}></div>
 			</div>
-		</>
+		</Subpage>
 	);
 }

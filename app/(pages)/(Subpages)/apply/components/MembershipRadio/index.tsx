@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import Radio, { PropTypes as RadioPropTypes } from '@/components/input/Radio';
 
 export interface Membership {
@@ -10,12 +8,13 @@ export interface Membership {
 }
 
 export interface PropTypes {
+  type: 'NEW' | 'EXISTING';
   memberships: Array<Membership>;
   selectedMembership: Membership | undefined;
   onChange: (membership: Membership) => void;
 }
 
-function MembershipRadios({ memberships, selectedMembership, onChange }: PropTypes) {
+function MembershipRadios({ type, memberships, selectedMembership, onChange }: PropTypes) {
   const handleChange: RadioPropTypes['onChange'] = e => {
     const selectedId = e.target.value;
 
@@ -30,11 +29,7 @@ function MembershipRadios({ memberships, selectedMembership, onChange }: PropTyp
     onChange(selectedMembership);
   };
 
-  useEffect(() => {
-    if (!selectedMembership) onChange(memberships[0]);
-  }, [memberships, onChange, selectedMembership]);
-
-  if (!selectedMembership) return <div className='radio__box'>로딩중...</div>;
+  if (memberships.length === 0) return <div className='radio__box'>로딩중...</div>;
 
   return (
     <div className='radio__box'>
@@ -45,12 +40,12 @@ function MembershipRadios({ memberships, selectedMembership, onChange }: PropTyp
             key={membership.id}
             value={membership.id}
             label={membership.name}
-            checked={selectedMembership.id === membership.id}
+            checked={selectedMembership?.id === membership.id}
             onChange={handleChange}
           />
         );
       })}
-      <Radio name='membership' value={'no'} label='보유중' onChange={handleChange} />
+      {type === 'EXISTING' && <Radio name='membership' value={'no'} label='보유중' onChange={handleChange} />}
     </div>
   );
 }

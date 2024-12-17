@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 
-import { MouseEvent, ReactNode, useState } from 'react';
+import { MouseEvent, ReactNode, useEffect, useState } from 'react';
 
 import useBoolean from '@/hooks/useBoolean';
 
@@ -29,10 +29,6 @@ function ConfirmCheckBox({ onChangeCheck }: PropTypes) {
     setChecked(prev => {
       return { ...prev, [e.target.id]: e.target.checked };
     });
-
-    const allChecked = Object.values(checked).every(v => v);
-
-    onChangeCheck(allChecked);
   };
 
   const handleOpenModal = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -42,6 +38,11 @@ function ConfirmCheckBox({ onChangeCheck }: PropTypes) {
     if (name === 'term') openTermsModal();
     if (name === 'privacy') openPrivacyModal();
   };
+
+  useEffect(() => {
+    const isAllChecked = Object.values(checked).every(value => value);
+    onChangeCheck(isAllChecked);
+  }, [checked, onChangeCheck])
 
   const list: Array<Item> = [
     { id: 'price', label: <label htmlFor='price'>할인 적용된 정확한 결제 금액은 ACAMS 결제 메일을 통해 확인 가능합니다.</label> },

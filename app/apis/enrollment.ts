@@ -1,18 +1,17 @@
-import { createRequest, CreateRequestOptions, RequestFunction } from './instance';
+import { createRequest, RequestFunction } from './instance';
 
 export type CreateType = 'NEW' | 'EXISTING';
 export type Language = 'ENGLISH' | 'KOREAN';
 export type PackageType = 'BASIC' | 'LECTURE';
 
 export interface RegistEnrollmentBaseArgs {
-  createType: CreateType;
   email: string;
   lastNameEng: string;
   firstNameEng: string;
-  certificationId: string;
-  language: Language;
+  certificationId?: string;
+  language?: Language;
   packageType: PackageType;
-  membershipId: string;
+  membershipId?: string;
 }
 
 export interface RegistEnrollmentByNewMemberArgs extends RegistEnrollmentBaseArgs {
@@ -37,7 +36,7 @@ export interface RegistEnrollmentByExistingMemberArgs extends RegistEnrollmentBa
   membershipNumber: string;
 }
 
-type RegistEnrollmentArgs = RegistEnrollmentByNewMemberArgs | RegistEnrollmentByExistingMemberArgs;
+export type RegistEnrollmentArgs = RegistEnrollmentByNewMemberArgs | RegistEnrollmentByExistingMemberArgs;
 
 export interface RegistEnrollmentResponse {
   id: string;

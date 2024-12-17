@@ -2,19 +2,20 @@ import { Metadata } from "next";
 import styles from "./faq.module.scss";
 import SubTab from "../program/component/SubTab";
 import Accordion from "@/components/util/Accordion";
+import Subpage from "../Subpage";
 
 export const metadata: Metadata = {
-  title: "FAQ"
+	title: "FAQ"
 };
 
 export default function FAQ() {
-  const tabData = [
-    { name: "시험 준비 및 정보" },
-    { name: "시험 규정 및 진행" },
-    { name: "신분증 및 개인정보 관리" },
-    { name: "결과 및 자격 유지" },
-    { name: "Credit 및 학습자료" },
-    { name: "멤버십 및 기타지원" },
+	const tabData = [
+		{ name: "시험 준비 및 정보" },
+		{ name: "시험 규정 및 진행" },
+		{ name: "신분증 및 개인정보 관리" },
+		{ name: "결과 및 자격 유지" },
+		{ name: "Credit 및 학습자료" },
+		{ name: "멤버십 및 기타지원" },
 	];
 
 	const faq_data = [
@@ -41,10 +42,12 @@ export default function FAQ() {
 	]
 	
 	return (
-		<div className={styles.faq}>
-			<SubTab type="filter" tabs={tabData} />
-			
-			<Accordion Data={faq_data} />
-		</div>
+		<Subpage title="FAQ">
+			<div className={styles.faq}>
+				<SubTab type="filter" tabs={tabData} />
+				
+				<Accordion Data={faq_data} />
+			</div>
+		</Subpage>
 	)
 }

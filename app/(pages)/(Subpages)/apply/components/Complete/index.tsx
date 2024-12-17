@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 function Complete() {
   return (
-    <div className={`${styles.apply__complete} hidden`}>
+    <div className={`${styles.apply__complete}`}>
       <Image src='/images/sub/ico_sub_apply_complite.svg' width={50} height={50} alt='신청완료 icon' aria-hidden={true} />
       <strong>신청 완료</strong>
       <div className={styles.desc}>

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SubTab from "../../component/SubTab";
 import SubLayout from "../../component/SubLayout";
+import Subpage from "@/(pages)/(Subpages)/Subpage";
 
 export const metadata: Metadata = {
   title: "CCAS",
@@ -106,7 +107,7 @@ export default function CAMS() {
   ]
 
   return (
-    <>
+    <Subpage title="중급 자격증">
       <SubTab type="link" tabs={tabData} />
       <SubLayout
         type="level2"
@@ -120,6 +121,6 @@ export default function CAMS() {
 				test_info={testInfo}
         price_info={priceInfo}
       />
-    </>
+    </Subpage>
   );
 }

@@ -1,11 +1,18 @@
-import axios, { AxiosRequestConfig, Method } from 'axios';
+import axios, { Method } from 'axios';
 
 import { API_URL } from '@/constants/url';
 
 import { createSearchParams } from '@/libs/utils';
+import ResponseError, { isApiErrorResponse } from '@/libs/ResponseError';
 
 const instance = axios.create({
   baseURL: API_URL,
+});
+
+instance.interceptors.response.use(undefined, error => {
+  const { response } = error;
+
+  return Promise.reject(response.data?.code ? response.data : response);
 });
 
 export interface RequestFunction<Argument = void, Response = void> {
@@ -20,15 +27,22 @@ export interface CreateRequestOptions {
 }
 
 export const createRequest = async <T = void>({ method, endpoint, body, params }: CreateRequestOptions): Promise<T> => {
-  const { data } = await instance({
-    method,
-    url: `${API_URL}${endpoint}${createSearchParams(params)}`,
-    data: body,
-  });
+  try {
+    const { data } = await instance({
+      method,
+      url: `${API_URL}${endpoint}${createSearchParams(params)}`,
+      data: body,
+    });
 
-  if (data.code !== 'OK') {
-    throw data;
+    if (data.code !== 'OK') {
+      throw data;
+    }
+
+    return data.data;
+  } catch (error) {
+    if (isApiErrorResponse(error)) {
+      throw new ResponseError(error);
+    }
+    throw error;
   }
-
-  return data.data;
 };

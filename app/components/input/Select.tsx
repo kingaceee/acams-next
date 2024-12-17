@@ -16,8 +16,8 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 
 export default function Select({ placeholder, options, selected, ...selectProps }: SelectProps) {
   return (
-    <select {...selectProps} defaultValue='no' value={selected} className={cs(styles.select, selectProps.className)}>
-      <option disabled value='no'>
+    <select {...selectProps} value={selected} className={cs(styles.select, selectProps.className)}>
+      <option disabled value=''>
         {placeholder}
       </option>
       {options.map((option, index) => (

@@ -34,7 +34,7 @@ function CertificationSelect({ list, selected, onChange, ...selectProps }: PropT
 
   if (list.length === 0) return '로딩중...';
 
-  return <Select {...selectProps} onChange={handleChange} placeholder='프로그램 종류' options={options} selected={selected?.id} />;
+  return <Select {...selectProps} onChange={handleChange} placeholder='프로그램 종류' options={options} selected={selected?.id ?? ""} />;
 }
 
 export default CertificationSelect;

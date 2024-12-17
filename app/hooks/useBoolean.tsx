@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 function useBoolean(defaultValue: boolean) {
   const [value, setValue] = useState(defaultValue);
 
-  const setTrue = () => setValue(true);
+  const setTrue = useCallback(() => setValue(true), []);
 
-  const setFalse = () => setValue(false);
+  const setFalse = useCallback(() => setValue(false), []);
 
-  const toggle = () => setValue(prev => !prev);
+  const toggle = useCallback(() => setValue(prev => !prev), []);
 
-  return { value, setTrue, setFalse, toggle };
+  return { value, setTrue, setFalse, toggle } as const;
 }
 
 export default useBoolean;

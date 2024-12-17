@@ -1,4 +1,4 @@
-import { createRequest, CreateRequestOptions, RequestFunction } from './instance';
+import { createRequest, RequestFunction } from './instance';
 
 export interface GetCertificationResponse {
   id: string;
@@ -9,7 +9,7 @@ export interface GetCertificationResponse {
   publicPrice: number;
 }
 
-export const getCerifications: RequestFunction<void, Array<GetCertificationResponse>> = () => {
+export const getCertifications: RequestFunction<void, Array<GetCertificationResponse>> = () => {
   return createRequest({
     method: 'GET',
     endpoint: '/certifications',
