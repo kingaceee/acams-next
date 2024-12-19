@@ -70,6 +70,10 @@ select {
 a,button {
   display: block;
   cursor: pointer;
+
+  &:visited {
+    color: inherit;
+  }
 }
 
 // *::-webkit-scrollbar {

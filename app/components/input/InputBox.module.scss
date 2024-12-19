@@ -21,4 +21,14 @@
 		color: #FF0000;
 		font-size: 14px;
 	}
+
+	@include mobile {
+		input {
+			min-height: vw-mo(40);
+		}
+
+		.timer {
+			font-size: vw-mo(14);
+		}
+	}
 }

@@ -8,6 +8,13 @@
 	padding: 0 12px;
 	@include font(17,700);
 
+	@include mobile {
+		min-width: vw-mo(96);
+		min-height: vw-mo(40);
+		padding: vw-mo(0 20);
+		font-size: vw-mo(14);
+	}
+
 	&.primary {
 		color: #fff;
 		border: 1px solid #002368;
@@ -20,7 +27,7 @@
 		background: #fff;
 	}
 
-	&:disabled{
+	&:disabled {
 		opacity: 0.5;
 		cursor: not-allowed;
 	}

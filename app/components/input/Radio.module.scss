@@ -38,4 +38,20 @@
 	label {
 		font-size: 15px;
 	}
+
+	@include mobile {
+		input {
+			width: vw-mo(16);
+			min-width: vw-mo(16);
+			height: vw-mo(16);
+			min-height: vw-mo(16);
+
+			&:checked:before {
+				width: vw-mo(8);
+				min-width: vw-mo(8);
+				height: vw-mo(8);
+				min-height: vw-mo(8);
+			}
+		}
+	}
 }

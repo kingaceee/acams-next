@@ -11,6 +11,10 @@
 	background-color: rgba(0, 0, 0, 0.3);
 	z-index: 1000;
 
+	@include mobile {
+		padding: 0;
+	}
+
 	&.isOpen {
 		display: flex;
 	}
@@ -21,27 +25,52 @@
 		width: 800px;
 		max-height: 750px;
 		background: #fff;
+
+		@include mobile {
+			width: 100%;
+			height: 100%;
+			max-height: none;
+		}
 	}
 
 	&__header {
 		display: flex;
 		justify-content: space-between;
 		padding: 40px 40px 20px;
+
+		@include mobile {
+			padding: vw-mo(30 20 12);
+		}
 	}
 
 	&__title {
 		@include font(26,800);
+
+		@include mobile {
+			font-size: vw-mo(20);
+			line-height: vw-mo(36);
+		}
 	}
 
 	&__close {
+		align-self: center;
 		width: 24px;
 		height: 24px;
 		background: $close no-repeat 50% 50% / 100%;
+
+		@include mobile {
+			width: vw-mo(24);
+			height: vw-mo(24);
+		}
 	}
 
 	&__body {
 		overflow-y: auto;
 		padding: 0 40px 40px;
+
+		@include mobile {
+			padding: vw-mo(0 20 20);
+		}
 	}
 
 	&__footer {
@@ -51,5 +80,13 @@
 		gap: 12px;
 		padding: 16px 40px;
 		border-top: 1px solid	#ccc;
+
+		@include mobile {
+			padding: vw-mo(20);
+
+			button {
+				flex: 1 1;
+			}
+		}
 	}
 }

@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import Button, { PropTypes as ButtonPropTypes } from '../buttons/Button';
 import styles from './Modal.module.scss';
+import { createPortal } from 'react-dom';
 
 interface Btn {
   label: string;
@@ -13,11 +14,18 @@ interface ModalProps {
   modalTitle?: string;
   buttons?: Btn[];
   children: ReactNode;
-  // onClose: () => void;
+  onClose: () => void;
 }
 
-export default function Modal({ modalTitle, isOpen, buttons, children }: ModalProps) {
-  return (
+export default function Modal({ modalTitle, isOpen, buttons, onClose, children }: ModalProps) {
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  return createPortal(
     <div className={`${styles.modal} ${isOpen ? styles.isOpen : ''}`} role='dialog' aria-modal='true' aria-labelledby='modal-title'>
       <div className={styles.modal__inner}>
         <div className={styles.modal__header}>
@@ -26,7 +34,7 @@ export default function Modal({ modalTitle, isOpen, buttons, children }: ModalPr
               {modalTitle}
             </h3>
           )}
-          <button className={styles.modal__close} aria-label='Close modal'></button>
+          <button className={styles.modal__close} aria-label='Close modal' onClick={onClose}></button>
         </div>
 
         <div className={styles.modal__body}>{children}</div>
@@ -39,6 +47,7 @@ export default function Modal({ modalTitle, isOpen, buttons, children }: ModalPr
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

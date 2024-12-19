@@ -1,7 +1,8 @@
 import styles from './index.module.scss';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import cs from 'clsx';
+import _ from 'lodash';
 
 import useBoolean from '@/hooks/useBoolean';
 
@@ -24,17 +25,19 @@ function EmailVerification({ message, label, onRequestVerifyCode, onVerify }: Pr
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
 
-  const { value: isActiveVerify, setTrue: activeVerify } = useBoolean(false);
-  const { value: isVerify, setTrue: successVerify, setFalse: notVerify } = useBoolean(false);
+  const { value: activeVerify, setTrue: showVerify } = useBoolean(false);
+
+  const { value: isVerified, setTrue: successVerify, setFalse: notVerify } = useBoolean(false);
   const { value: isExpired, setTrue: expire, setFalse: refresh } = useBoolean(false);
 
-  const [time, setTime] = useState(0);
+  const [startDate, setStartDate] = useState<number>();
+  const [showTimer, setShowTimer] = useState(0);
 
   const timerEventId = useRef<NodeJS.Timeout>(null);
 
   const handleChangeEmail: React.ChangeEventHandler<HTMLInputElement> = e => {
     setEmail(e.target.value);
-    if (isVerify) notVerify();
+    if (isVerified) notVerify();
   };
 
   const handleChangeCode: React.ChangeEventHandler<HTMLInputElement> = e => {
@@ -43,45 +46,80 @@ function EmailVerification({ message, label, onRequestVerifyCode, onVerify }: Pr
     if (Number.isFinite(Number(code)) && code.length <= DEFAULT_LENGTH) setCode(e.target.value);
   };
 
-  const handleClickEmailButton = async () => {
-    const result = await onRequestVerifyCode(email);
-    if (!result) return;
+  const handleClickEmailButton = _.debounce(
+    async () => {
+      const result = await onRequestVerifyCode(email);
+      if (!result) return;
 
-    setTime(DEFAULT_TIME);
-    setCode('');
-    activeVerify();
-    refresh();
+      setStartDate(Date.now());
+      setShowTimer(DEFAULT_TIME);
+      setCode('');
+      showVerify();
+      refresh();
+    },
+    3000,
+    { leading: true, trailing: false }
+  );
 
-    if (timerEventId.current) clearInterval(timerEventId.current);
-    timerEventId.current = setInterval(() => {
-      setTime(prev => prev - 1);
-    }, 1000);
-  };
-
-  const handleClickCodeButton = async () => {
+  const handleClickCodeButton = useCallback(async () => {
     const result = await onVerify({ email, code });
 
     if (result) {
       if (timerEventId.current) clearInterval(timerEventId.current);
       successVerify();
-      setTime(0);
+      setStartDate(undefined);
+      setShowTimer(0);
     }
-  };
+  }, [email, code, onVerify, successVerify]);
+
+  const setTimerEvent = useCallback(() => {
+    if (startDate) {
+      if (timerEventId.current) clearInterval(timerEventId.current);
+
+      timerEventId.current = setInterval(() => {
+        const result = Math.floor((Date.now() - startDate) / 1000);
+
+        if (result >= DEFAULT_TIME) {
+          if (timerEventId.current) clearInterval(timerEventId.current);
+          setShowTimer(0);
+          expire();
+        } else {
+          setShowTimer(DEFAULT_TIME - result);
+        }
+      }, 1000);
+    }
+  }, [expire, startDate]);
 
   useEffect(() => {
-    if (time === 0) {
+    if (showTimer === 0) {
       if (timerEventId.current) {
-        if (!isVerify) expire();
+        if (!isVerified) expire();
         clearInterval(timerEventId.current);
       }
     }
-  }, [expire, isVerify, time]);
+  }, [showTimer, isVerified, expire]);
+
+  useEffect(() => {
+    const tempFunc = () => {
+      if (document.visibilityState === 'visible') {
+        setTimerEvent();
+      }
+    };
+
+    setTimerEvent();
+    document.addEventListener('visibilitychange', tempFunc);
+
+    return () => {
+      if (timerEventId.current) clearInterval(timerEventId.current);
+      document.removeEventListener('visibilitychange', tempFunc);
+    };
+  }, [setTimerEvent]);
 
   const timer = `
-    ${Math.floor((time % 3600) / 60)
+    ${Math.floor((showTimer % 3600) / 60)
       .toString()
       .padStart(2, '0')}
-    :${Math.floor(time % 60)
+    :${Math.floor(showTimer % 60)
       .toString()
       .padStart(2, '0')}`;
 
@@ -93,29 +131,29 @@ function EmailVerification({ message, label, onRequestVerifyCode, onVerify }: Pr
             type='email'
             id='email'
             value={email}
-            disabled={isVerify}
+            disabled={isVerified}
             onChange={handleChangeEmail}
             button={
-              <button type='button' className='btn default' disabled={isVerify} onClick={handleClickEmailButton}>
-                이메일 인증
+              <button type='button' className='btn default' disabled={isVerified} onClick={handleClickEmailButton}>
+                {isVerified ? '이메일 인증 완료' : '이메일 인증'}
               </button>
             }
           />
         </LabelBox>
       </div>
-      <div className={cs('form__row', { hidden: !isActiveVerify })}>
+      <div className={cs('form__row', { hidden: !activeVerify })}>
         <LabelBox text='인증숫자' message={<p className={cs([styles.alert], 'alert--text')}>{message.verify}</p>}>
           <InputBox
             type='number'
             placeholder='인증숫자 6자리를 입력해주세요'
             value={code}
             onChange={handleChangeCode}
-            disabled={isVerify || isExpired}
+            disabled={isVerified || isExpired}
             button={
-              <button type='button' className='btn default' disabled={isVerify || isExpired} onClick={handleClickCodeButton}>
+              <button type='button' className='btn default' disabled={isVerified || isExpired} onClick={handleClickCodeButton}>
                 {(() => {
                   if (isExpired) return '인증코드 만료';
-                  if (isVerify) return '인증 완료';
+                  if (isVerified) return '인증 완료';
                   return '인증코드 입력';
                 })()}
               </button>

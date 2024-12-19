@@ -42,7 +42,7 @@ function ConfirmCheckBox({ onChangeCheck }: PropTypes) {
   useEffect(() => {
     const isAllChecked = Object.values(checked).every(value => value);
     onChangeCheck(isAllChecked);
-  }, [checked, onChangeCheck])
+  }, [checked, onChangeCheck]);
 
   const list: Array<Item> = [
     { id: 'price', label: <label htmlFor='price'>할인 적용된 정확한 결제 금액은 ACAMS 결제 메일을 통해 확인 가능합니다.</label> },
@@ -80,7 +80,12 @@ function ConfirmCheckBox({ onChangeCheck }: PropTypes) {
           </li>
         ))}
       </ul>
-      <Modal isOpen={isOpenTermsModal} modalTitle='이용약관' buttons={[{ label: '확인', publType: 'primary', onClick: closeTermModal }]}>
+      <Modal
+        isOpen={isOpenTermsModal}
+        modalTitle='이용약관'
+        onClose={closeTermModal}
+        buttons={[{ label: '확인', publType: 'primary', onClick: closeTermModal }]}
+      >
         <Terms />
       </Modal>
 
@@ -88,6 +93,7 @@ function ConfirmCheckBox({ onChangeCheck }: PropTypes) {
         isOpen={isOpenPrivacyModal}
         modalTitle='개인정보처리방침'
         buttons={[{ label: '확인', publType: 'primary', onClick: closePrivacyModal }]}
+        onClose={closePrivacyModal}
       >
         <Privacy />
       </Modal>

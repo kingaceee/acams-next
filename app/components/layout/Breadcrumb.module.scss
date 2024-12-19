@@ -45,6 +45,7 @@
 
 		&.active {
 			color: #222;
+			font-weight: 700;
 		}
 	}
 
@@ -57,6 +58,7 @@
 	
 		&__depth {
 			gap: vw-mo(8);
+			font-size: vw-mo(11);
 	
 			& + .breadcrumb__depth {
 				&:before {

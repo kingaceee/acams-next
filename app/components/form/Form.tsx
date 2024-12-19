@@ -1,5 +1,4 @@
 
-import Checkbox from '../input/Checkbox';
 import InputBox from '../input/InputBox';
 import Radio from '../input/Radio';
 import styles from './Form.module.scss'
@@ -40,8 +39,6 @@ export default function FormGroup({id, title, formRow, }: SelectProps) {
 						{row.rowType === 'inputBox' && row.inputBox && (
 						<InputBox
 							id={row.inputBox.id}
-							for={row.inputBox.for}
-							buttonText={row.inputBox.btnLabel}
 							timer={row.inputBox.timer}
 						/>
 						)}
@@ -51,9 +48,8 @@ export default function FormGroup({id, title, formRow, }: SelectProps) {
 							<Radio
 								key={id}
 								id={btn.id}
-								for={btn.for}
 								name={btn.name}
-								label={btn.label}
+								label=''
 							/>
 						))}
 					</div>

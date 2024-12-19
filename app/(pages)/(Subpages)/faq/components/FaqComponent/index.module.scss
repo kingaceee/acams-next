@@ -1,0 +1,14 @@
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include mobile {
+    gap: vw-mo(40);
+  }
+}
+
+.link{
+  display: inline-block;
+  margin: 0 4px;
+}

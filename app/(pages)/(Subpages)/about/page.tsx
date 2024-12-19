@@ -23,7 +23,7 @@ export default function About() {
 				/>
 
 				<div className={`${styles.about__sign} ${styles.sign2}`}></div>
-				<p>ACAMS 프로그램 신청 중개는 AML 컨설팅 전문업체 알앤씨글로벌과 함께 합니다.</p>
+				<p>ACAMS 프로그램 신청 서비스는 AML 컨설팅 전문업체 알앤씨글로벌과 함께 합니다.</p>
 				<p>알앤씨글로벌은 금융회사의 급변하는 대내외 환경에 가장 적합한 통합 컴플라이언스 서비스를 제공하기 위하여 생션 리스트, UBO 리스트, 컨설팅, Risk and Compliance 전문문서 번역 검수, 인력 지원, 뉴스레터 제공 등 금융회사의 리스크를 관리하고 규제를 준수하기 위하여 필요한 종합 서비스를 제공하고 있습니다.</p>
 			</div>
 		</Subpage>

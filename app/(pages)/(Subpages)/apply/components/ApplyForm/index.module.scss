@@ -1,56 +1,4 @@
 .apply {
-  display: flex;
-  width: 100%;
-
-  &__side {
-    width: 400px;
-    min-width: 400px;
-    border-right: 1px solid #ccc;
-
-    .desc {
-      padding: 50px 40px;
-      color: #333;
-      font-size: 14px;
-      line-height: 20px;
-    }
-  }
-
-  &__info {
-    li {
-      & + li {
-        margin-top: 20px;
-      }
-    }
-  }
-
-  .info {
-    &__title {
-      height: 40px;
-      @include font(16, 700);
-      align-content: center;
-      text-align: center;
-      border: 1px solid #ccc;
-      border-width: 1px 0 1px 0;
-      background: #e2fdff;
-    }
-
-    &__list {
-      padding: 20px 40px;
-      border-bottom: 1px solid #ccc;
-    }
-
-    &__tit {
-      @include font(16, 700);
-    }
-
-    &__desc {
-      display: flex;
-      margin-top: 8px;
-      padding-left: 20px;
-      font-size: 14px;
-    }
-  }
-
   &__form {
     width: 100%;
   }
@@ -61,69 +9,74 @@
     > .title {
       @include font(18, 700);
     }
+
+    @include mobile {
+      padding: vw-mo(50 20);
+    }
   }
 
   &__footer {
     @include flexCenter(center);
     padding-bottom: 90px;
   }
-
-  &__button {
-    @include inlineFlexCenter(center);
-    height: 48px;
-    padding: 0 24px;
-    color: #fff;
-    @include font(17, 700);
-    background: #002368;
-  }
 }
 
-.priced {
-  display: flex;
-  gap: 24px;
+.benefit {
   border-bottom: 1px solid #ccc;
 
-  > * {
-    flex: 1 1;
-  }
+  .desc {
+    margin-top: 20px;
+    line-height: 24px;
 
-  &__calc {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 12px;
-    font-size: 16px;
-
-    .desc {
-      font-size: 14px;
-    }
-  }
-
-  &__row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4px;
-
-    .tit {
-      font-size: 16px;
-    }
-
-    .price {
-      font-weight: 700;
-      span {
-        font-size: 24px;
-      }
+    @include mobile {
+      font-size: vw-mo(14);
+      line-height: vw-mo(20);
     }
   }
 }
 
-.check {
-  &__list {
-    margin-top: 16px;
 
-    li + li {
-      margin-top: 8px;
-    }
-  }
-}
+
+
+
+
+
+// .priced {
+//   display: flex;
+//   gap: 24px;
+//   border-bottom: 1px solid #ccc;
+
+//   > * {
+//     flex: 1 1;
+//   }
+
+//   &__calc {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-end;
+//     gap: 12px;
+//     font-size: 16px;
+
+//     .desc {
+//       font-size: 14px;
+//     }
+//   }
+
+//   &__row {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     gap: 4px;
+
+//     .tit {
+//       font-size: 16px;
+//     }
+
+//     .price {
+//       font-weight: 700;
+//       span {
+//         font-size: 24px;
+//       }
+//     }
+//   }
+// }

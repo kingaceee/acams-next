@@ -7,7 +7,7 @@ import Subpage from '../Subpage';
 function Apply() {
 	return (
 		<Subpage title="프로그램 신청" category="ACAMS 프로그램">
-			<ApplyContainer />;
+			<ApplyContainer />
 		</Subpage>
 	)
 }

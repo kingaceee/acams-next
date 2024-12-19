@@ -15,4 +15,19 @@
     line-height: 24px;
     text-align: center;
   }
+
+
+  @include mobile {
+    gap: vw-mo(24);
+    padding: vw-mo(100 20);
+
+    strong {
+      font-size: vw-mo(24);
+    }
+
+    .desc {
+      font-size: vw-mo(16);
+      line-height: vw-mo(24);
+    }
+  }
 }

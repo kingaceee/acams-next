@@ -19,6 +19,28 @@
       }
     }
   }
+
+  @include mobile {
+    &__side {
+      width: 100%;
+      min-width: 100%;
+      padding: vw-mo(50 20);
+
+      .desc {
+        padding: vw-mo(0 0 24);
+        font-size: vw-mo(14);
+        line-height: vw-mo(20);
+      }
+    }
+
+    &__info {
+      border: 1px solid #ccc;
+
+      li + li {
+        margin-top: vw-mo(20);
+      }
+    }
+  }
 }
 
 .info {
@@ -35,6 +57,10 @@
   &__list {
     padding: 20px 40px;
     border-bottom: 1px solid #ccc;
+
+    @include mobile {
+      border: 0
+    }
   }
 
   &__tit {
@@ -46,5 +72,27 @@
     margin-top: 8px;
     padding-left: 20px;
     font-size: 14px;
+  }
+
+  @include mobile {
+    &__title {
+      height: vw-mo(40);
+      font-size: vw-mo(16);
+      border-top: 0;
+    }
+
+    &__list {
+      padding: vw-mo(12);
+    }
+
+    &__tit {
+      font-size: vw-mo(14);
+    }
+
+    &__desc {
+      margin-top: vw-mo(8);
+      padding-left: vw-mo(12);
+      font-size: vw-mo(12);
+    }
   }
 }

@@ -1,6 +1,7 @@
 import styles from './index.module.scss';
 
 import React, { FormEventHandler, useCallback, useMemo, useState } from 'react';
+import cs from 'clsx';
 
 import { nullCheck } from '@/libs/utils';
 
@@ -12,7 +13,7 @@ import Button from '@/components/buttons/Button';
 import LabelBox from '@/apply/components/LabelBox';
 import LanguageRadio, { PropTypes as LanguageRadioPropTypes } from '@/apply/components/LanguageRadio';
 import PackageRadio, { PropTypes as PackageRadioPropTypes } from '@/apply/components/PackageRadio';
-import PriceSummary from '@/apply/components/PriceSummary';
+// import PriceSummary from '@/apply/components/PriceSummary';
 import ConfirmCheckBox, { PropTypes as ConfirmCheckBoxPropTypes } from '@/apply/components/ConfirmCheckBox';
 import ExistingMemberForm, { Info as ExistingMemberFormInfo } from '@/apply/components/ExistingMemberForm';
 import NewMemberForm, { Info as NewMemberFormInfo } from '@/apply/components/NewMemberForm';
@@ -260,13 +261,13 @@ function ApplyForm({ onSubmit }: PropTypes) {
         )}
 
         <div className='form__row'>
-          <LabelBox text='멤버쉽'>
+          <LabelBox text='멤버쉽' message={<p className={cs('alert--text')}>자격증 신청시 멤버십을 반드시 보유해야 합니다.</p>}>
             <MembershipRadiosContainer type={type} selectedMembership={selectedMembership} onChange={handleChangeMembership} />
           </LabelBox>
         </div>
       </div>
 
-      <div className={`${styles.apply__box} ${styles.priced}`}>
+      {/* <div className={`${styles.apply__box} ${styles.priced}`}>
         <strong className={styles.title}>비용</strong>
         <PriceSummary
           certification={{
@@ -278,6 +279,16 @@ function ApplyForm({ onSubmit }: PropTypes) {
             publicPrice: selectedMembership?.publicPrice ?? 0,
           }}
         />
+      </div> */}
+
+      <div className={`${styles.apply__box} ${styles.benefit}`}>
+        <strong className={styles.title}>할인 혜택</strong>
+        <div className={styles.desc}>
+          <p>AML HUB를 통해 ACAMS 프로그램 신청 시</p>
+          <p>공식 가격보다 10% 할인된 가격으로 결제하실 수 있습니다.</p>
+          <p>(공공기관 종사자는 5% 할인된 가격으로 결제하실 수 있습니다) </p>
+          <p>결제 절차는 ACAMS에서 직접 진행됩니다.</p>
+        </div>
       </div>
 
       <div className={`${styles.apply__box} ${styles.check}`}>

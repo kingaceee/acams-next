@@ -1,17 +1,21 @@
-import { Metadata } from "next";
-import styles from "./membership.module.scss";
-import Subpage from "../Subpage";
+import { Metadata } from 'next';
+import styles from './membership.module.scss';
+import Subpage from '../Subpage';
 
 export const metadata: Metadata = {
-	title: "멤버십"
+	title: '멤버십',
 };
 
 export default function Membership() {
 	return (
-		<Subpage title="Membership" category="ACAMS 프로그램 신청">
+		<Subpage title='Membership' category='ACAMS 프로그램 신청'>
 			<div className={styles.membership}>
 				<strong className={styles.title}>ACAMS Membership Benefits</strong>
-				<p className={styles.desc}>ACAMS 회원 혜택은 <br className="show-mo" />여러분의 학습과 네트워킹, 그리고 <br className="show-mo" />경력 발전을 지원하도록 구성되어 있습니다.</p>
+				<p className={styles.desc}>
+					ACAMS 회원 혜택은 <br className='show-mo' />
+					여러분의 학습과 네트워킹, 그리고 <br className='show-mo' />
+					경력 발전을 지원하도록 구성되어 있습니다.
+				</p>
 
 				<div className={styles.benefit}>
 					<ul className={styles.benefit__list}>
@@ -47,6 +51,31 @@ export default function Membership() {
 							</div>
 						</li>
 					</ul>
+				</div>
+
+				<div className={styles.price__group}>
+					<div className={styles.price__box}>
+						<div className={styles.price__title}>1년</div>
+						<div className={styles.price}>
+							<span>민간</span>
+							<p>$ 345 <span>USD</span></p>
+						</div>
+						<div className={styles.price}>
+							<span>공공</span>
+							<p>$ 225 <span>USD</span></p>
+						</div>
+					</div>
+					<div className={styles.price__box}>
+						<div className={styles.price__title}>3년</div>
+						<div className={styles.price}>
+							<span>민간</span>
+							<p>$ 825 <span>USD</span></p>
+						</div>
+						<div className={styles.price}>
+							<span>공공</span>
+							<p>$ 525 <span>USD</span></p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</Subpage>

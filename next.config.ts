@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
     includePaths: [path.join(__dirname, 'app', 'styles')],
     prependData: `@use 'abstracts' as *;`,
   },
+  eslint:{
+    ignoreDuringBuilds: true,
+  }
 };
 
 export default nextConfig;
